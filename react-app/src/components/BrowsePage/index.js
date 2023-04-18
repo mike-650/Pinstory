@@ -14,6 +14,7 @@ function BrowsePage({ isLoaded }) {
     <div className="BR-navigation-bar">
       {/* <img src={logo} alt='Pinstory logo' id='home-icon'/> */}
       <h1>HERE</h1>
+
     </div>
   )
 }
