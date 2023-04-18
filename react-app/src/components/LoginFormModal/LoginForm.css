@@ -1,0 +1,32 @@
+.LG-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LG-modal-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.LG-icon {
+  margin-top: 5%;
+}
+
+.LG-input-fields {
+  height: 30px;
+  border-radius: 10px;
+  border: 2px solid rgb(205, 205, 205);
+  margin-bottom: 20px;
+}
+
+.LG-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(133, 142, 203);
+  border: 1px solid rgb(133, 142, 203);;
+  height: 35px;
+  color: white;
+  border-radius: 20px;
+}

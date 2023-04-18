@@ -1,5 +1,32 @@
+.NV-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.NV-home-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(0, 4, 81);
+  font-weight: bold;
+  margin-top: 4px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+#home-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
+
+
 .profile-dropdown {
   position: absolute;
+  right: 5px;
 }
 
 .hidden {

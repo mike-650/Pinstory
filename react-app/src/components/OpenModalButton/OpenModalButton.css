@@ -1,0 +1,14 @@
+.login-signup-buttons {
+  background-color: rgb(133, 142, 203);
+  color: white;
+  border-radius: 20px;
+  border: 1px solid rgb(133, 142, 203);
+  margin-right: 7px;
+}
+
+.login-signup-buttons:hover {
+  cursor: pointer;
+  background-color:rgb(108, 115, 165);
+  border: 1px solid rgb(108, 115, 165);
+
+}
