@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import logo from '../../images/pinstory-icon.png'
-import './Navigation.css';
+import './SplashPage.css';
 
-function Navigation({ isLoaded }) {
+function SplashPage() {
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
@@ -14,11 +14,9 @@ function Navigation({ isLoaded }) {
 					<img src={logo} alt='Pinstory Icon' id='home-icon' />
 					Pinstory
 				</NavLink>
-			{isLoaded && (
 					<ProfileButton user={sessionUser} />
-			)}
 		</ul>
 	);
 }
 
-export default Navigation;
+export default SplashPage;

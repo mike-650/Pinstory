@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import logo from "../../images/pinstory-icon.png"
 
@@ -9,6 +10,7 @@ import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -20,9 +22,27 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+        closeModal();
+        history.push('/browse');
     }
   };
+
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'))
+
+    setEmail('demo@aa.io');
+    setPassword('password');
+
+    setTimeout(() => {
+      if (data) {
+        setErrors(data);
+      } else {
+        closeModal();
+        history.push('/browse');
+      }
+    }, 1000)
+  }
 
   return (
     <div className="LG-modal-container">
@@ -57,8 +77,8 @@ function LoginFormModal() {
 
         <button type="submit" className="LG-button">Log In</button>
         <div style={{display:'flex', justifyContent:'center', fontWeight:'bold'}}>OR</div>
-        <button type="submit" className="LG-button">Demo User</button>
       </form>
+        <button className="LG-button" style={{width:"60%"}} onClick={(e) => handleDemo(e)}>Demo User</button>
     </div>
   );
 }
