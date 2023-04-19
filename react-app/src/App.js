@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { authenticate } from "./store/session";
 import BrowsePage from "./components/BrowsePage";
 import SplashPage from "./components/SplashPage";
-import Navigation from "./Navigation";
+import Navigation from "./components/Navigation";
 import ProfilePage from "./components/ProfilePage";
 import SinglePin from "./components/SinglePin";
 

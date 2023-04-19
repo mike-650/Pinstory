@@ -1,7 +1,7 @@
 .BR-pins-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin: 40px 40px;
+  margin: 10px 40px;
   grid-gap: 10px;
 }
 

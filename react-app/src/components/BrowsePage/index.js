@@ -17,12 +17,10 @@ function BrowsePage() {
 
   return (
     <div className="BR-pins-container">
-      {allPins.map(pin =>
-        <>
-          <NavLink to={`/pin/${pin.id}`} className="BR-NavLink">
-          <img src={pin.imageUrl} alt='test' key={pin.id} className="BR-pin-images"></img>
+      {allPins.map((pin)=>
+          <NavLink to={`/pin/${pin.id}`} className="BR-NavLink" key={pin.id}>
+          <img src={pin.imageUrl} alt='test' className="BR-pin-images"></img>
           </NavLink>
-        </>
       )}
     </div>
   )
