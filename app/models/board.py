@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from sqlalchemy import ForeignKey
 
 
 class Board(db.Model):
@@ -10,10 +11,14 @@ class Board(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(40), nullable=False)
 
+    user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
+
+    user = db.relationship('User', back_populates='boards')
     pins = db.relationship('Pin', secondary='board_pins', back_populates='boards')
 
     def to_dict(self):
         return {
             'id': self.id,
-            'title': self.title
+            'title': self.title,
+            'user_id': self.user_id
         }
