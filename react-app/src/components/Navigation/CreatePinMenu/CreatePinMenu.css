@@ -12,7 +12,6 @@
   width: 10%;
 }
 
-
 .CP-create-link {
   text-decoration: none;
   padding-left: 10px;
@@ -23,4 +22,8 @@
 .CP-create-link:hover {
   background-color: rgb(233, 233, 233);
   border-radius: 10px;
+}
+
+.hidden {
+  visibility: hidden;
 }
