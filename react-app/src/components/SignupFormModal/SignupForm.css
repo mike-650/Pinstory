@@ -1,0 +1,22 @@
+.SU-input-fields {
+  height: 25px;
+  border-radius: 10px;
+  border: 2px solid rgb(205, 205, 205);
+  margin-bottom: 5px;
+}
+
+.SU-button {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: rgb(133, 142, 203);
+  border: 1px solid rgb(133, 142, 203);;
+  height: 35px;
+  color: white;
+  border-radius: 20px;
+}
+
+.SU-button:hover {
+  cursor: pointer;
+  background-color:rgb(108, 115, 165);
+  border: 1px solid rgb(108, 115, 165);
+}

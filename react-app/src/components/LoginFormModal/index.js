@@ -18,67 +18,62 @@ function LoginFormModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let errors = {}
+
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     } else {
-        closeModal();
-        history.push('/browse');
+      closeModal();
+      history.push('/browse');
     }
   };
 
   const handleDemo = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('demo@aa.io', 'password'))
+    await dispatch(login('demo@aa.io', 'password'))
 
     setEmail('demo@aa.io');
     setPassword('password');
 
-    setTimeout(() => {
-      if (data) {
-        setErrors(data);
-      } else {
+      setTimeout(() => {
         closeModal();
         history.push('/browse');
-      }
-    }, 1000)
+      }, 600)
+
   }
 
   return (
     <div className="LG-modal-container">
       <img src={logo} alt='pinstory logo' id='home-icon' className="LG-icon"></img>
-      <h1 style={{marginBottom:"0"}}>Welcome to Pinstory</h1>
+      <h1 style={{ marginBottom: "20px" }}>Welcome to Pinstory</h1>
       <form onSubmit={handleSubmit} className="LG-modal-form">
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label/>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder="Email"
-            className="LG-input-fields"
-          />
-        <label/>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder="Password"
-            className="LG-input-fields"
-          />
+        {errors.length ? <span style={{ color: 'red', fontSize: '15px', marginBottom:'5px'}}>The email or password you entered is invalid</span> : null}
+        <label />
+        Email
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          placeholder="Email"
+          className="LG-input-fields"
+        />
+        <label />
+        Password
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          placeholder="Password"
+          className="LG-input-fields"
+        />
 
         <button type="submit" className="LG-button">Log In</button>
-        <div style={{display:'flex', justifyContent:'center', fontWeight:'bold'}}>OR</div>
+        <div style={{ display: 'flex', justifyContent: 'center', fontWeight: 'bold' }}>OR</div>
       </form>
-        <button className="LG-button" style={{width:"60%"}} onClick={(e) => handleDemo(e)}>Demo User</button>
+      <button className="LG-button" style={{ width: "60%" }} onClick={(e) => handleDemo(e)}>Demo User</button>
     </div>
   );
 }
