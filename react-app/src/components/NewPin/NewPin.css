@@ -1,0 +1,49 @@
+.NP-container {
+  width: 55%;
+  height: 78%;
+  background-color: white;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.NP-create-pin-box {
+  display: flex;
+  justify-content: center;
+}
+
+.NP-create-pin-top-section {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  margin-top: 5%;
+  width: 85%;
+  color: rgb(95, 95, 95);
+}
+
+.NP-create-ellipsis {
+  width: fit-content;
+}
+
+.NP-create-ellipsis:hover {
+  cursor: pointer;
+}
+
+.NP-save-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(216, 45, 47);
+  border-radius: 10px;
+  height: 40px;
+  width: 65px;
+  color: white;
+}
+
+.NP-save-button:hover {
+  cursor: pointer;
+}
