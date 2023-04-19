@@ -1,7 +1,12 @@
+
+import './SinglePin.css'
+
 function SinglePin() {
 
   return (
-    <h1>Single Pin</h1>
+    <div className="SP-container">
+      <h1>Single Pin</h1>
+    </div>
   )
 }
 
