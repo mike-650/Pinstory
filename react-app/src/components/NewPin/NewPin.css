@@ -13,6 +13,8 @@
 .NP-create-pin-box {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .NP-create-pin-top-section {
@@ -46,4 +48,60 @@
 
 .NP-save-button:hover {
   cursor: pointer;
+}
+
+.NP-create-pin-middle-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+  width: 85%;
+}
+
+.NP-create-pin-left-side {
+  width: 40%;
+  margin-right: 10px;
+}
+
+.NP-create-pin-right-side {
+  width: 60%;
+  margin-left: 10px;
+}
+
+.NP-title-field {
+  background-color: transparent;
+  border: transparent;
+  text-decoration: none;
+  width: fill;
+  /* height: 40px; */
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.NP-title-field:focus {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgb(29, 117, 224);
+}
+
+.NP-description-field {
+  background-color: transparent;
+  border: transparent;
+  text-decoration: none;
+  margin-top: 50px;
+  width: fill;
+  font-size: 14px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  border-bottom: 1px solid rgb(203, 203, 203) ;
+
+}
+
+.NP-description-field:focus {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgb(29, 117, 224);
 }
