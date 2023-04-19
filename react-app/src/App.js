@@ -7,6 +7,7 @@ import SplashPage from "./components/SplashPage";
 import Navigation from "./components/Navigation";
 import ProfilePage from "./components/ProfilePage";
 import SinglePin from "./components/SinglePin";
+import NewPin from "./components/NewPin";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,10 @@ function App() {
           <Route path='/pin/:pinId'>
             <Navigation />
             <SinglePin />
+          </Route>
+          <Route path='/new-pin'>
+            <Navigation />
+            <NewPin />
           </Route>
           <Route path="/:userName">
             <Navigation />

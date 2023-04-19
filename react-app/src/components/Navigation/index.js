@@ -17,8 +17,8 @@ function Navigation() {
       <div className='NV-left-section'>
         <img src={logo} alt='Pinstory Logo' style={{ height: '30px', width: '30px' }} />
         <NavLink to={'/browse'} className='NV-home-link'>Home</NavLink>
-        <div className='NV-create-pin-container' onClick={openCreateMenu}>
-        <p>Create <i class="fa-solid fa-chevron-down"></i></p>
+        <div className='NV-create-pin-container'>
+        <p className='NV-createpin-icon' onClick={openCreateMenu}>Create <i class="fa-solid fa-chevron-down"></i></p>
         { createMenu && <CreatePinMenu />}
         </div>
       </div>
