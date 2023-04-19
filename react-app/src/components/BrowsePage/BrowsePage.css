@@ -1,3 +1,21 @@
-.BR-navigation-bar {
-  height: 200px;
+.BR-pins-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 40px 40px;
+  grid-gap: 10px;
+}
+
+.BR-NavLink {
+  height: fit-content;
+  width: fit-content;
+}
+
+.BR-pin-images {
+  height: auto;
+  width: 210px;
+  border-radius: 10px;
+}
+
+.BR-pin-images:hover {
+  opacity: .7 ;
 }

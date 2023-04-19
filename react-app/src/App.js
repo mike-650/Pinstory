@@ -6,6 +6,7 @@ import BrowsePage from "./components/BrowsePage";
 import SplashPage from "./components/SplashPage";
 import Navigation from "./Navigation";
 import ProfilePage from "./components/ProfilePage";
+import SinglePin from "./components/SinglePin";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,10 @@ function App() {
           <Route path="/browse">
             <Navigation />
             <BrowsePage isLoaded={isLoaded} />
+          </Route>
+          <Route path='/pin/:pinId'>
+            <Navigation />
+            <SinglePin />
           </Route>
           <Route path="/:userName">
             <Navigation />
