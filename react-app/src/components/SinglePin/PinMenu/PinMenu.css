@@ -10,7 +10,25 @@
   /* margin-top: 100px; */
   right: 43.7%;
   top: 17.5%;
-  /* height: 30%; */
+  height: 10%;
   width: 10%;
   box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.SinglePM-edit-button {
+  width: 100%;
+  user-select: none;
+}
+
+.DP-modal-button {
+  background-color: rgb(216, 45, 47);
+  color: white;
+  border-radius: 20px;
+  border: 1px solid rgb(216, 45, 47);
+  user-select: none;
+  width: 100%;
+}
+
+.DP-modal-button:hover {
+  cursor: pointer;
 }
