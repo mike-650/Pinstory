@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { authenticate } from "./store/session";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 import BrowsePage from "./components/BrowsePage";
 import SplashPage from "./components/SplashPage";
 import Navigation from "./components/Navigation";
@@ -21,22 +22,22 @@ function App() {
       <Route exact path='/' component={SplashPage} />
       {isLoaded && (
         <Switch>
-          <Route path="/browse">
+          <ProtectedRoute path="/browse">
             <Navigation />
             <BrowsePage isLoaded={isLoaded} />
-          </Route>
-          <Route path='/pin/:pinId'>
+          </ProtectedRoute>
+          <ProtectedRoute path='/pin/:pinId'>
             <Navigation />
             <SinglePin />
-          </Route>
-          <Route path='/new-pin'>
+          </ProtectedRoute>
+          <ProtectedRoute path='/new-pin'>
             <Navigation />
             <NewPin />
-          </Route>
-          <Route path="/:userName">
+          </ProtectedRoute>
+          <ProtectedRoute path="/:userName">
             <Navigation />
             <ProfilePage />
-          </Route>
+          </ProtectedRoute>
         </Switch>
       )}
     </>

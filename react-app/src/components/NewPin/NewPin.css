@@ -50,6 +50,17 @@
   cursor: pointer;
 }
 
+#NP-save {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  color: white;
+}
+
 .NP-create-pin-middle-section {
   display: flex;
   justify-content: center;
@@ -62,6 +73,16 @@
 .NP-create-pin-left-side {
   width: 40%;
   margin-right: 10px;
+}
+
+.NP-dropzone {
+  border: 1px solid grey;
+  background-color: rgb(239, 239, 239);
+}
+
+.NP-image-preview {
+  width: fill;
+  height: fill;
 }
 
 .NP-create-pin-right-side {

@@ -1,0 +1,24 @@
+.Clear-pin-menu-container {
+  display: flex;
+  text-align: left;
+  padding-left: 10px;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  margin-top: 10px;
+  left: -1%;
+  width: 18%;
+  color: black;
+  font-weight: bold;
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+
+.Clear-pin-text {
+  width: 90%;
+}
+
+.Clear-pin-text:hover {
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+}
