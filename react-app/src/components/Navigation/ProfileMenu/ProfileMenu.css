@@ -1,13 +1,48 @@
 .PM-drop-menu {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-  background-color: red;
+  background-color: white;
   border-radius: 10px;
   position: absolute;
-  margin-top: 27.2%;
+  margin-top: 22.2%;
   right: 1%;
-  height: 20rem;
-  width: 10%;
+  height: 15rem;
+  width: 17%;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.PM-menu-container {
+  display: flex;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  flex-direction: column;
+}
+
+.PM-profile-section {
+  display: flex;
+}
+
+.PM-profile-icon {
+  margin-top: 17.5px;
+}
+
+.PM-profile-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  width: 100%;
+}
+
+#logout-button {
+  position: absolute;
+  bottom: 0;
+  left: 5rem;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(133, 142, 203);
+  border: 1px solid rgb(133, 142, 203);;
+  height: 35px;
+  color: white;
+  border-radius: 20px;
 }

@@ -1,0 +1,16 @@
+.SinglePM-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  /* margin-top: 100px; */
+  right: 43.7%;
+  top: 17.5%;
+  /* height: 30%; */
+  width: 10%;
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+}

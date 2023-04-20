@@ -39,6 +39,7 @@
 
 .NV-createpin-icon {
   user-select: none;
+  font-weight: bold;
 }
 
 .NV-createpin-icon:hover {
