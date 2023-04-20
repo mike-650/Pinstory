@@ -18,7 +18,7 @@ const normalizePins = (data) => {
 
 // TODO: THUNK AC'S
 export const thunkAllPins = () => async dispatch => {
-  const response = await fetch('/api/pins')
+  const response = await fetch('/api/pins/')
 
   if (response.ok) {
     const data = await response.json();

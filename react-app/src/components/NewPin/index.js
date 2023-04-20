@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Dropzone from './Dropzone';
 import ClearPinMenu from './ClearPinMenu';
 
 
 import './NewPin.css'
-import { useSelector } from 'react-redux';
 
 function NewPin() {
+  const history = useHistory('')
   const [imgFile, setImgFile] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState({});
   const [clearMenu, setClearMenu] = useState(false);
 
-  const userId = useSelector(state => state.session.user.id)
 
 
   useEffect(() => {
@@ -34,10 +34,6 @@ function NewPin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(title)
-    console.log(description)
-    console.log(imgFile)
-    console.log('SUBMITTED')
     let err = {};
 
     const imageFormat = [
@@ -46,7 +42,7 @@ function NewPin() {
         ".eps", ".svg", ".pdf", ".ico",
         ".raw", ".webp"]
 
-    if (title.length >= 30) err.title = 'Song Title must be less than 30 characters';
+    if (title.length >= 30) err.title = 'Pin Title must be less than 30 characters';
 
     if (!imageFormat.some(ext => imgFile.name.endsWith(ext))) {
         err.imgFile = 'Please provide a valid image file';
@@ -59,26 +55,18 @@ function NewPin() {
     formData.append('title', title)
     formData.append('description', description)
     formData.append('imgFile', imgFile)
-    formData.append('user_id', userId)
 
 
-    console.log(formData.get('title'))
-    console.log(formData.get('description'))
-    console.log(formData.get('imgFile'))
-
-
-    const res = await fetch('/api/pins', {
+    const res = await fetch('/api/pins/', {
       method: "POST",
-      body: formData
+      body: formData,
   });
 
-    console.log('RESPONSE :  ',  res)
-
-  // if (res.ok) {
-  //     closeModal();
-  //     dispatch(thunkAllSongs());
-  //     return history.push('/browse');
-  // }
+  if (res.ok) {
+      return history.push('/browse');
+  } else {
+    return;
+  }
 
 
   }
@@ -102,6 +90,7 @@ function NewPin() {
             <Dropzone className='NP-dropzone' setImgFile={setImgFile}/>
           </div>
           <div className='NP-create-pin-right-side'>
+            { errors.title ? <p style={{color:'red', fontSize:'12px', margin:'4px', textAlign:'left'}}>{errors.title}</p> : null }
             <input
               type='text'
               placeholder='Add your title'
