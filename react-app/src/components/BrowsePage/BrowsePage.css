@@ -5,6 +5,34 @@
   grid-gap: 10px;
 }
 
+@media only screen and (max-width: 1370px) {
+  .BR-pins-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 10px 40px;
+    grid-gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 925px) {
+  .BR-pins-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 10px 40px;
+    grid-gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .BR-pins-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px 40px;
+    grid-gap: 10px;
+  }
+}
+
+
 .BR-NavLink {
   height: fit-content;
   width: fit-content;
@@ -14,6 +42,8 @@
   height: auto;
   width: 210px;
   border-radius: 10px;
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
+
 }
 
 .BR-pin-images:hover {

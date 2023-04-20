@@ -1,0 +1,13 @@
+.PM-drop-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  background-color: red;
+  border-radius: 10px;
+  position: absolute;
+  margin-top: 27.2%;
+  right: 1%;
+  height: 20rem;
+  width: 10%;
+}

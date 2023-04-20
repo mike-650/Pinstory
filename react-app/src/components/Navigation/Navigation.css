@@ -69,3 +69,13 @@
 #NV-search-bar:hover {
   background-color: rgb(225, 225, 225);
 }
+
+.NV-profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.NV-profile-section:hover {
+  cursor: pointer;
+}
