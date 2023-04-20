@@ -6,13 +6,13 @@ function PinMenu() {
 
   return (
     <div className="SinglePM-container">
-      <div>Edit Pin</div>
+      <div className="SinglePM-edit-button">Edit Pin</div>
         <OpenModalButton
           buttonText="Delete Pin"
           // onItemClick={closeMenu}
           modalComponent={<DeletePinModal />}
+          className={'DP-modal-button'}
         />
-
     </div>
 
   )
