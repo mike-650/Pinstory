@@ -57,7 +57,7 @@ function NewPin() {
     formData.append('imgFile', imgFile)
 
 
-    const res = await fetch('/api/pins/', {
+    const res = await fetch('/api/pins/singlePin', {
       method: "POST",
       body: formData,
   });

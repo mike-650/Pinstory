@@ -8,7 +8,7 @@ from .AWS_helpers import get_unique_filename, upload_file_to_s3
 pin_routes = Blueprint('pins', __name__)
 
 
-@pin_routes.route('/')
+@pin_routes.route('/allPins')
 @login_required
 def all_pins():
     """
@@ -18,7 +18,17 @@ def all_pins():
     return {'pins': [pin.to_dict() for pin in pins]}
 
 
-@pin_routes.route('/', methods=['POST'])
+@pin_routes.route('/singlePin/<int:pin_id>')
+@login_required
+def single_pin(pin_id):
+    """
+    Query for one pinsand returns it in a dictionary
+    """
+    pin = Pin.query.filter(Pin.id==pin_id).one()
+
+    return { "pin" : pin.to_dict() }
+
+@pin_routes.route('/singlePin', methods=['POST'])
 @login_required
 def create_pin():
     data = request.files
