@@ -65,7 +65,7 @@ function NewPin() {
   if (res.ok) {
       return history.push('/browse');
   } else {
-    return;
+    return history.push('/')
   }
 
 
@@ -97,6 +97,7 @@ function NewPin() {
               className='NP-title-field'
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              required
             >
             </input>
             <input
@@ -105,6 +106,7 @@ function NewPin() {
               className='NP-description-field'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              required
             >
             </input>
           </div>
