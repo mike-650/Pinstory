@@ -123,7 +123,7 @@ function NewPin() {
             </div>
             <textarea
               type='text'
-              placeholder='Tell everyone what about Pin is about'
+              placeholder='Tell everyone what your Pin is about'
               className='NP-description-field'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
