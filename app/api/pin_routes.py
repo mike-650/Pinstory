@@ -71,3 +71,31 @@ def create_pin():
 
     if form.errors:
         return {"message": "Invalid Data", "status": 403}
+
+@pin_routes.route('/updatePin/<int:pin_id>', methods=['PUT'])
+@login_required
+def update_pin(pin_id):
+    pin = Pin.query.filter(Pin.id==pin_id).one()
+    data = request.json
+
+    if pin:
+        pin.title = data.get('title')
+        pin.description = data.get('description')
+        db.session.commit()
+        updatedPin = Pin.query.filter(Pin.id==pin_id).one()
+        return {'updatedPin': updatedPin.to_dict() }
+    else:
+        return {'error': 'Pin not found', 'status': 404}
+
+
+@pin_routes.route('/deletePin/<int:pin_id>', methods=['DELETE'])
+@login_required
+def delete_pin(pin_id):
+    pin = Pin.query.filter(Pin.id==pin_id).one()
+
+    if pin:
+        db.session.delete(pin)
+        db.session.commit()
+        return {'message': 'Pin deleted successfully', 'status': 200}
+    else:
+        return {'error': 'Pin not found', 'status': 404}

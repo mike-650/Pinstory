@@ -1,18 +1,24 @@
 import OpenModalButton from "../../OpenModalButton"
+import EditPinModal from "./EditPinModal"
 import DeletePinModal from "./DeletePinModal"
 import './PinMenu.css'
+
 
 function PinMenu() {
 
   return (
     <div className="SinglePM-container">
-      <div className="SinglePM-edit-button">Edit Pin</div>
-        <OpenModalButton
-          buttonText="Delete Pin"
-          // onItemClick={closeMenu}
-          modalComponent={<DeletePinModal />}
-          className={'DP-modal-button'}
-        />
+      <OpenModalButton
+        buttonText="Edit Pin"
+        modalComponent={<EditPinModal />}
+        className={'EP-modal-button'}
+      />
+
+      <OpenModalButton
+        buttonText="Delete Pin"
+        modalComponent={<DeletePinModal />}
+        className={'DP-modal-button'}
+      />
     </div>
 
   )

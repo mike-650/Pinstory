@@ -1,20 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import './ClearPinMenu.css'
 
 
-function ClearPinMenu({setImgFile, setTitle, setDescription}) {
+function ClearPinMenu({setImgFile, setTitle, setDescription, setUploadedFile}) {
   const [menu, setMenu] = useState('Clear-pin-menu-container');
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setMenu('hidden')
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+
+  }, [dropdownRef])
 
   const handleClear = () => {
     setMenu('hidden')
     setImgFile(null)
+    setUploadedFile(null)
     setTitle('')
     setDescription('')
   }
 
   return (
-    <div className={menu}>
+    <div className={menu} ref={dropdownRef}>
       <p className='Clear-pin-text' onClick={() => handleClear()}>Clear</p>
     </div>
   )

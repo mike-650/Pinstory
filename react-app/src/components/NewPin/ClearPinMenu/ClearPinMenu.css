@@ -11,11 +11,13 @@
   color: black;
   font-weight: bold;
   box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
+  z-index: 11;
 }
 
 
 .Clear-pin-text {
   width: 90%;
+  user-select: none;
 }
 
 .Clear-pin-text:hover {

@@ -1,9 +1,7 @@
 .SinglePM-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
+  justify-content: space-evenly;
   background-color: white;
   border-radius: 10px;
   position: absolute;
@@ -20,15 +18,32 @@
   user-select: none;
 }
 
-.DP-modal-button {
-  background-color: rgb(216, 45, 47);
-  color: white;
+.EP-modal-button {
+  color: black;
+  border: transparent;
+  background-color: transparent;
   border-radius: 20px;
-  border: 1px solid rgb(216, 45, 47);
+  user-select: none;
+  width: 100%;
+}
+
+.EP-modal-button:hover {
+  cursor: pointer;
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+}
+
+.DP-modal-button {
+  color: black;
+  border: transparent;
+  background-color: transparent;
+  border-radius: 20px;
   user-select: none;
   width: 100%;
 }
 
 .DP-modal-button:hover {
   cursor: pointer;
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
 }

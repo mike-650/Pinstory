@@ -5,14 +5,18 @@ import ClearPinMenu from './ClearPinMenu';
 
 
 import './NewPin.css'
+import { useSelector } from 'react-redux';
 
 function NewPin() {
   const history = useHistory('')
   const [imgFile, setImgFile] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [uploadedFile, setUploadedFile] = useState(null);
   const [errors, setErrors] = useState({});
   const [clearMenu, setClearMenu] = useState(false);
+
+  const user = useSelector(state => state.session.user)
 
 
 
@@ -44,8 +48,10 @@ function NewPin() {
 
     if (title.length >= 30) err.title = 'Pin Title must be less than 30 characters';
 
-    if (!imageFormat.some(ext => imgFile.name.endsWith(ext))) {
-        err.imgFile = 'Please provide a valid image file';
+    if (!imgFile) {
+      err.imgFile = 'Please provide an image file'
+    } else if (!imageFormat.some(ext => imgFile.name.endsWith(ext))) {
+      err.imgFile = 'Please provide a valid image file';
     }
 
     if (Object.values(err).length) return setErrors(err)
@@ -65,7 +71,7 @@ function NewPin() {
   if (res.ok) {
       return history.push('/browse');
   } else {
-    return;
+    return history.push('/')
   }
 
 
@@ -77,7 +83,7 @@ function NewPin() {
         <div className='NP-create-pin-top-section'>
           <div className='NP-create-ellipsis'>
             <i className="fa-solid fa-ellipsis fa-xl" onClick={toggleMenu}></i>
-            {clearMenu && <ClearPinMenu setImgFile={setImgFile} setTitle={setTitle} setDescription={setDescription} />}
+            {clearMenu && <ClearPinMenu setImgFile={setImgFile} setTitle={setTitle} setDescription={setDescription} setUploadedFile={setUploadedFile}/>}
           </div>
           <div className="NP-save-button">
             <button id='NP-save'>Save</button>
@@ -87,7 +93,12 @@ function NewPin() {
 
         <div className='NP-create-pin-middle-section'>
           <div className='NP-create-pin-left-side'>
-            <Dropzone className='NP-dropzone' setImgFile={setImgFile}/>
+            <Dropzone
+            className='NP-dropzone'
+            setImgFile={setImgFile}
+            errors={errors}
+            uploadedFile={uploadedFile}
+            setUploadedFile={setUploadedFile}/>
           </div>
           <div className='NP-create-pin-right-side'>
             { errors.title ? <p style={{color:'red', fontSize:'12px', margin:'4px', textAlign:'left'}}>{errors.title}</p> : null }
@@ -97,16 +108,27 @@ function NewPin() {
               className='NP-title-field'
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              required
             >
             </input>
-            <input
+            <div className='NP-profile-preview'>
+            <div className='NP-profile-pic-container'>
+            <img src={user.profilePicture || 'https://pinstorybucket.s3.us-west-1.amazonaws.com/default.png'} alt='Profile Picture' className='NP-profile-picture'></img>
+            </div>
+            <div className='NP-first-last-container'>
+            <p style={{marginRight:'5px'}}>{user.firstName}</p>
+            <p>{user.lastName}</p>
+            </div>
+            </div>
+            <textarea
               type='text'
               placeholder='Tell everyone what about Pin is about'
               className='NP-description-field'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              required
             >
-            </input>
+            </textarea>
           </div>
         </div>
       </div>
