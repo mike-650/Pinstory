@@ -11,6 +11,8 @@ function SignupFormModal() {
 	const history = useHistory();
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState({});
@@ -20,12 +22,14 @@ function SignupFormModal() {
 		e.preventDefault();
 		let err = {};
 
+		if (firstName.length > 20 || firstName.length < 2) err.firstName = 'First name must be between 2 and 20 characters';
+		if (lastName.length > 20 || lastName.length < 2) err.lastName = 'Last name must be between 2 and 20 characters';
 		if (username.length < 5 || username.length > 20) err.username = 'Username must be between 5 and 20 characters.';
 		if (password.length < 6) err.password = 'Password must be at least 6 characters.';
 		if (Object.values(err) > 0) return setErrors(err);
 
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const data = await dispatch(signUp(username, email, password, firstName, lastName));
 			if (data) {
 				data.forEach(error => {
 					if (error.includes('email')) err.email = 'Email address is already in use.';
@@ -60,6 +64,28 @@ function SignupFormModal() {
 					className="SU-input-fields"
 				/>
 				{errors.email ? <span style={{ color: 'red', fontSize: '12px' }}>{errors.email}</span> : null}
+				<label />
+				First Name
+				<input
+					type="text"
+					value={firstName}
+					onChange={(e) => setFirstName(e.target.value)}
+					required
+					placeholder="First Name"
+					className="SU-input-fields"
+				/>
+				{errors.firstName ? <span style={{ color: 'red', fontSize: '12px' }}>{errors.firstName}</span> : null}
+				<label />
+				Last Name
+				<input
+					type="text"
+					value={lastName}
+					onChange={(e) => setLastName(e.target.value)}
+					required
+					placeholder="Last Name"
+					className="SU-input-fields"
+				/>
+				{errors.lastName ? <span style={{ color: 'red', fontSize: '12px' }}>{errors.lastName}</span> : null}
 				<label />
 				Username
 				<input
