@@ -20,17 +20,53 @@
 
 .PM-profile-section {
   display: flex;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(233, 233, 233);
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.PM-profile-section:hover {
+  cursor: pointer;
+  padding: 7px;
 }
 
 .PM-profile-icon {
   margin-top: 17.5px;
+  padding: 0;
+  margin: 0;
+}
+
+.PM-profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.PM-profile-picture:hover {
+  cursor: pointer;
+}
+
+.PM-profile-picture-in-menu {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-right: 10px;
 }
 
 .PM-profile-info {
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
+  justify-content: center;
   width: 100%;
+}
+
+.PM-username-check {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #logout-button {
@@ -40,9 +76,27 @@
   margin-bottom: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: rgb(133, 142, 203);
-  border: 1px solid rgb(133, 142, 203);;
   height: 35px;
-  color: white;
   border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logout-actual-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(216, 45, 47);
+  border: transparent;
+  border-radius: 10px;
+  height: 40px;
+  width: 65px;
+  color: white;
+  user-select: none;
+}
+
+#logout-actual-button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
 }

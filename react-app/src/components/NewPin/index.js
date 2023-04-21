@@ -41,10 +41,10 @@ function NewPin() {
     let err = {};
 
     const imageFormat = [
-        ".jpg", ".jpeg", ".png", ".gif",
-        ".bmp", ".tiff", ".psd", ".ai",
-        ".eps", ".svg", ".pdf", ".ico",
-        ".raw", ".webp"]
+      ".jpg", ".jpeg", ".png", ".gif",
+      ".bmp", ".tiff", ".psd", ".ai",
+      ".eps", ".svg", ".pdf", ".ico",
+      ".raw", ".webp"]
 
     if (title.length >= 30) err.title = 'Pin Title must be less than 30 characters';
 
@@ -66,13 +66,13 @@ function NewPin() {
     const res = await fetch('/api/pins/singlePin', {
       method: "POST",
       body: formData,
-  });
+    });
 
-  if (res.ok) {
+    if (res.ok) {
       return history.push('/browse');
-  } else {
-    return history.push('/')
-  }
+    } else {
+      return history.push('/')
+    }
 
 
   }
@@ -83,7 +83,7 @@ function NewPin() {
         <div className='NP-create-pin-top-section'>
           <div className='NP-create-ellipsis'>
             <i className="fa-solid fa-ellipsis fa-xl" onClick={toggleMenu}></i>
-            {clearMenu && <ClearPinMenu setImgFile={setImgFile} setTitle={setTitle} setDescription={setDescription} setUploadedFile={setUploadedFile}/>}
+            {clearMenu && <ClearPinMenu setImgFile={setImgFile} setTitle={setTitle} setDescription={setDescription} setUploadedFile={setUploadedFile} setErrors={setErrors} />}
           </div>
           <div className="NP-save-button">
             <button id='NP-save'>Save</button>
@@ -94,14 +94,15 @@ function NewPin() {
         <div className='NP-create-pin-middle-section'>
           <div className='NP-create-pin-left-side'>
             <Dropzone
-            className='NP-dropzone'
-            setImgFile={setImgFile}
-            errors={errors}
-            uploadedFile={uploadedFile}
-            setUploadedFile={setUploadedFile}/>
+              className='NP-dropzone'
+              setImgFile={setImgFile}
+              errors={errors}
+              uploadedFile={uploadedFile}
+              setUploadedFile={setUploadedFile} />
           </div>
           <div className='NP-create-pin-right-side'>
-            { errors.title ? <p style={{color:'red', fontSize:'12px', margin:'4px', textAlign:'left'}}>{errors.title}</p> : null }
+            {errors.imgFile && <span className="NP-errors">{errors.imgFile}</span>}
+            {errors.title ? <p className='NP-errors'>{errors.title}</p> : null}
             <input
               type='text'
               placeholder='Add your title'
@@ -112,13 +113,13 @@ function NewPin() {
             >
             </input>
             <div className='NP-profile-preview'>
-            <div className='NP-profile-pic-container'>
-            <img src={user.profilePicture || 'https://pinstorybucket.s3.us-west-1.amazonaws.com/default.png'} alt='Profile Picture' className='NP-profile-picture'></img>
-            </div>
-            <div className='NP-first-last-container'>
-            <p style={{marginRight:'5px'}}>{user.firstName}</p>
-            <p>{user.lastName}</p>
-            </div>
+              <div className='NP-profile-pic-container'>
+                <img src={user.profilePicture || 'https://pinstorybucket.s3.us-west-1.amazonaws.com/default.png'} alt='Profile Picture' className='NP-profile-picture'></img>
+              </div>
+              <div className='NP-first-last-container'>
+                <p style={{ marginRight: '5px' }}>{user.firstName}</p>
+                <p>{user.lastName}</p>
+              </div>
             </div>
             <textarea
               type='text'

@@ -7,7 +7,17 @@
   background-color: white;
   padding-top: 7px;
   padding-bottom: 7px;
-  opacity: .90;
+  opacity: .96;
+}
+
+.NV-pinstory-logo {
+  height: 30px;
+  width: 30px;
+  padding-right: 15px;
+}
+
+.NV-pinstory-logo:hover {
+  cursor: pointer;
 }
 
 .NV-left-section {
@@ -30,10 +40,10 @@
   text-decoration: none;
   color: black;
   font-size: 15px;
+  margin-bottom: 4.5px;
 }
 
 .NV-create-pin-container {
-  margin-top: 4px;
   font-size: 15px;
 }
 
@@ -77,6 +87,12 @@
   align-items: center;
 }
 
-.NV-profile-section:hover {
-  cursor: pointer;
+.PM-profile-picture {
+  width: 35px;
+  height: 35px;
+  border-radius: 30px;
+}
+
+.PM-profile-picture:hover {
+  box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.5);
 }
