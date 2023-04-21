@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { authenticate } from "./store/session";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import BrowsePage from "./components/BrowsePage";
@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import ProfilePage from "./components/ProfilePage";
 import SinglePin from "./components/SinglePin";
 import NewPin from "./components/NewPin";
+import NotFound from "./components/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,25 +20,29 @@ function App() {
 
   return (
     <>
-      <Route exact path='/' component={SplashPage} />
       {isLoaded && (
         <Switch>
-          <ProtectedRoute path="/browse">
+          <Route exact path='/' component={SplashPage} />
+          <ProtectedRoute exact path="/browse">
             <Navigation />
             <BrowsePage isLoaded={isLoaded} />
           </ProtectedRoute>
-          <ProtectedRoute path='/pin/:pinId'>
+          <ProtectedRoute exact path='/pin/:pinId'>
             <Navigation />
             <SinglePin />
           </ProtectedRoute>
-          <ProtectedRoute path='/new-pin'>
+          <ProtectedRoute exact path='/new-pin'>
             <Navigation />
             <NewPin />
           </ProtectedRoute>
-          <ProtectedRoute path="/:userName">
+          <ProtectedRoute exact path="/profile/:userName">
             <Navigation />
             <ProfilePage />
           </ProtectedRoute>
+          <Route path="/not-found">
+            <Navigation />
+            <NotFound />
+          </Route>
         </Switch>
       )}
     </>
