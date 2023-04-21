@@ -20,7 +20,7 @@ function Dropzone({ className, setImgFile, errors, uploadedFile, setUploadedFile
 
   return (
     <>
-      {errors.imgFile && <span>{errors.imgFile}</span>}
+      {/* {errors.imgFile && <span className="NP-errors">{errors.imgFile}</span>} */}
       <div {...getRootProps({
         className: className
       }

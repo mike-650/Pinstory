@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import './ClearPinMenu.css'
 
 
-function ClearPinMenu({setImgFile, setTitle, setDescription, setUploadedFile}) {
+function ClearPinMenu({setImgFile, setTitle, setDescription, setUploadedFile, setErrors}) {
   const [menu, setMenu] = useState('Clear-pin-menu-container');
   const dropdownRef = useRef(null);
 
@@ -23,11 +23,12 @@ function ClearPinMenu({setImgFile, setTitle, setDescription, setUploadedFile}) {
   }, [dropdownRef])
 
   const handleClear = () => {
-    setMenu('hidden')
-    setImgFile(null)
-    setUploadedFile(null)
-    setTitle('')
-    setDescription('')
+    setMenu('hidden');
+    setImgFile(null);
+    setUploadedFile(null);
+    setTitle('');
+    setDescription('');
+    setErrors({});
   }
 
   return (

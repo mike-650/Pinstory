@@ -18,10 +18,12 @@ function DeletePinModal() {
   return (
     <div className='DP-Modal'>
       <h2>Are you sure?</h2>
-      <h4>Once you delete a pin, you can't undo it!</h4>
+      <p style={{fontSize:'14px'}}>Once you delete a pin, you can't undo it!</p>
 
-      <div>Cancel</div>
-      <div onClick={handleDelete}>Delete Forever</div>
+      <div className='DP-cancel-delete-buttons'>
+      <button id='DP-cancel-button' onClick={() => closeModal()}>Cancel</button>
+      <button id='DP-delete-button' onClick={handleDelete}>Delete</button>
+      </div>
 
     </div>
   )
