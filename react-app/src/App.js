@@ -39,7 +39,7 @@ function App() {
             <Navigation />
             <ProfilePage />
           </ProtectedRoute>
-          <Route path="/not-found">
+          <Route>
             <Navigation />
             <NotFound />
           </Route>

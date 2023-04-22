@@ -42,3 +42,45 @@
   background-color: rgb(225, 225, 225);
 
 }
+
+.PP-created-saved {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  width: 12%;
+}
+
+.PP-create-class-default {
+  padding: 7px;
+}
+
+.PP-save-class-default {
+  padding: 7px;
+}
+
+.PP-create-class-default:hover {
+  background-color: rgb(233, 233, 233);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+
+.PP-save-class-default:hover {
+  background-color: rgb(233, 233, 233);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.PP-create-class-selected {
+  border-bottom: 3px solid black;
+  border-radius: 1px 1px 4px 4px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.PP-save-class-selected {
+  border-bottom: 3px solid black;
+  border-radius: 1px 1px 4px 4px;
+  padding: 7px;
+  cursor: pointer;
+}
