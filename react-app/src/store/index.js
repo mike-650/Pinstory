@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session';
 import pinsReducer from './pin';
+import boardsReducer from './board';
 
 const rootReducer = combineReducers({
   session,
   pins: pinsReducer,
+  boards: boardsReducer
 });
 
 

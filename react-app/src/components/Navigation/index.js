@@ -39,9 +39,7 @@ function Navigation() {
         <input type='search' placeholder='Search' id='NV-search-bar' />
       </form>
       <div className='NV-profile-section'>
-        {/* <i className="fa-regular fa-circle-user" onClick={openProfileMenu}></i> */}
         <img onClick={openProfileMenu} src={user?.profilePicture || 'https://pinstorybucket.s3.us-west-1.amazonaws.com/default.png'} alt='Profile Picture' className='PM-profile-picture'></img>
-
         { profileMenu ? <ProfileMenu /> : null}
       </div>
     </div>

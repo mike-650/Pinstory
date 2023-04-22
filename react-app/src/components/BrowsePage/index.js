@@ -18,9 +18,11 @@ function BrowsePage() {
   return (
     <div className="BR-pins-container">
       {allPins.map((pin)=>
+      <div className="BR-images-box" key={pin.id}>
           <NavLink to={`/pin/${pin.id}`} className="BR-NavLink" key={pin.id}>
           <img src={pin.imageUrl} alt='test' className="BR-pin-images"></img>
           </NavLink>
+      </div>
       )}
     </div>
   )

@@ -1,0 +1,14 @@
+.UP-pins-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 40px;
+  grid-gap: 10px;
+}
+
+
+.BR-pin-images {
+  height: fit-content;
+  width: 210px;
+  border-radius: 15px;
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
+}

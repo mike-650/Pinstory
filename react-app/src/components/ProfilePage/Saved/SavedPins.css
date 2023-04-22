@@ -1,0 +1,39 @@
+.SPB-boards-pins-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.SPB-grid-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+}
+
+.SPB-grid-preview:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.SPB-grid-preview img:first-child {
+  width: 100px;
+  height: 151px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  grid-row: span 2;
+}
+
+.SPB-grid-preview > *:not(:first-child) {
+  height: 75px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.SPB-grid-preview > img:nth-child(2) {
+  border-top-right-radius: 12px;
+}
+
+.SPB-grid-preview > img:nth-child(3) {
+  border-bottom-right-radius: 12px;
+}

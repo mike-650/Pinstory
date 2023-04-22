@@ -42,3 +42,70 @@
   background-color: rgb(225, 225, 225);
 
 }
+
+.PP-created-saved {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  width: 12%;
+}
+
+.PP-create-class-default {
+  padding: 7px;
+  user-select: none;
+}
+
+.PP-save-class-default {
+  padding: 7px;
+  user-select: none;
+}
+
+.PP-create-class-default:hover {
+  background-color: rgb(233, 233, 233);
+  border-radius: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.PP-save-class-default:hover {
+  background-color: rgb(233, 233, 233);
+  border-radius: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.PP-create-class-selected {
+  border-bottom: 3px solid black;
+  border-radius: 1px 1px 4px 4px;
+  padding: 7px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.PP-save-class-selected {
+  border-bottom: 3px solid black;
+  border-radius: 1px 1px 4px 4px;
+  padding: 7px;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.PP-filter-add-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+
+.PP-icons {
+  font-size: 30px;
+  padding: 5px;
+}
+
+.PP-icons:hover {
+  background-color: rgb(233, 233, 233);
+  border-radius: 20px;
+  cursor: pointer;
+}

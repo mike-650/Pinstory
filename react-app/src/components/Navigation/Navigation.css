@@ -91,6 +91,7 @@
   width: 35px;
   height: 35px;
   border-radius: 30px;
+  margin-left: 10px;
 }
 
 .PM-profile-picture:hover {
