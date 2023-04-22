@@ -34,15 +34,15 @@ function ProfileMenu() {
     <div className={menu} ref={dropdownRef}>
       <div className='PM-menu-container'>
         <p style={{ fontSize: '12px' }}>Currently In</p>
-        <NavLink to={`/profile/${user.username}`} className='PM-profile-section'>
-          <img src={user.profilePicture || 'https://pinstorybucket.s3.us-west-1.amazonaws.com/default.png'} alt='Profile Picture' className='PM-profile-picture-in-menu'></img>
+        <NavLink to={`/profile/${user?.username}`} className='PM-profile-section'>
+          <img src={user?.profilePicture || 'https://pinstorybucket.s3.us-west-1.amazonaws.com/default.png'} alt='Profile Picture' className='PM-profile-picture-in-menu'></img>
           <div className='PM-profile-info'>
-            <div style={{fontSize:'14px', fontWeight:'bold'}}>{user.firstName} {user.lastName}</div>
+            <div style={{fontSize:'14px', fontWeight:'bold'}}>{user?.firstName} {user?.lastName}</div>
             <div className='PM-username-check'>
-            <div style={{fontSize:'11px', color:'rgb(97,97,97)'}}>{user.username}</div>
+            <div style={{fontSize:'11px', color:'rgb(97,97,97)'}}>{user?.username}</div>
             <i className="fa-solid fa-check fa-sm"></i>
             </div>
-            <div style={{fontSize:'10px', color:'rgb(97,97,97)'}}>{user.email}</div>
+            <div style={{fontSize:'10px', color:'rgb(97,97,97)'}}>{user?.email}</div>
           </div>
         </NavLink>
 

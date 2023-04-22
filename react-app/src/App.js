@@ -8,6 +8,7 @@ import SplashPage from "./components/SplashPage";
 import Navigation from "./components/Navigation";
 import ProfilePage from "./components/ProfilePage";
 import SinglePin from "./components/SinglePin";
+import SingleBoard from "./components/SingleBoard";
 import NewPin from "./components/NewPin";
 import NotFound from "./components/NotFound";
 
@@ -38,6 +39,10 @@ function App() {
           <ProtectedRoute exact path="/profile/:userName">
             <Navigation />
             <ProfilePage />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/profile/:userName/:boardId">
+            <Navigation />
+            <SingleBoard />
           </ProtectedRoute>
           <Route>
             <Navigation />

@@ -1,0 +1,25 @@
+.SB-title-ellipsis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SB-profile-picture-container {
+  display: flex;
+  justify-content: center;
+}
+
+.SP-pins-filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.SP-board-pins-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  margin: 20px 150px;
+  width: 80%;
+}

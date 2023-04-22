@@ -15,10 +15,15 @@ def seed_boards():
         title="Clothes and Shoes",
         user_id=3
     )
+    board4 = Board(
+        title="Coding",
+        user_id=1
+    )
 
     db.session.add(board1)
     db.session.add(board2)
     db.session.add(board3)
+    db.session.add(board4)
 
     db.session.commit()
 

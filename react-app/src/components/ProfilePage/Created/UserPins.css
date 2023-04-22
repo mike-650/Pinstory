@@ -1,8 +1,7 @@
 .UP-pins-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: masonry;
-  margin: 10px 40px;
+  margin: 40px;
   grid-gap: 10px;
 }
 

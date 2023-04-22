@@ -93,8 +93,20 @@ def seed_pins():
         description="I have OMG, Hypeboy, and Ditto on repeat! What about yall??",
         user_id=1
     )
+    pin16 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/fifty.jpeg",
+        title="FIFTY-FIFTY",
+        description="I gave a second chance to Cupid~",
+        user_id=1
+    )
+    pin17 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/appAcademy.png",
+        title="App Academy",
+        description="Congratulations on graduating November cohort!",
+        user_id=3
+    )
 
-    allPins = [pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15]
+    allPins = [pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16, pin17]
 
     for pin in allPins:
         db.session.add(pin)
