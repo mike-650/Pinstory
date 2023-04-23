@@ -1,6 +1,7 @@
 // TODO: CONSTANTS
 const USER_BOARDS = 'USER_BOARDS';
 const SINGLE_BOARD = 'SINGLE_BOARD';
+const ADD_PIN_TO_BOARD = 'ADD_PIN_TO_BOARD';
 
 
 
@@ -11,6 +12,10 @@ export const actionUserBoards = (boards) => {
 
 export const actionSingleBoard = (board) => {
   return { type: SINGLE_BOARD, board}
+}
+
+export const actionAddPinToBoard = (board) => {
+  return { type: ADD_PIN_TO_BOARD, board}
 }
 
 // TODO: NORMALIZE DATA
@@ -41,6 +46,17 @@ export const thunkSingleBoard = (boardId) => async dispatch => {
     const data = await response.json();
     dispatch(actionSingleBoard(data.board))
     return;
+  }
+}
+
+export const thunkAddPinToBoard = (boardId, pinId) => async dispatch => {
+  const response = await fetch(`/api/boards/addPin/${boardId}/${pinId}`, {
+    method:'PUT'
+  })
+
+  if (response.ok) {
+    const data = await response.json();
+    console.log('UPDATED BOARD', data)
   }
 }
 

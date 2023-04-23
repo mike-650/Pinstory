@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from flask_wtf.csrf import generate_csrf
 # from ..forms.pin_form import PinForm
 from sqlalchemy.orm.exc import NoResultFound
-from app.models import Board, board_pins, db
+from app.models import Board, board_pins, Pin, db
 
 board_routes = Blueprint('boards', __name__)
 
@@ -36,9 +36,38 @@ def single_board(board_id):
     Query for a single user board and returns it as a board dictionary
     """
     try:
-      board = Board.query.filter(Board.id == board_id).one()
-      board_data = board.to_dict()
-      board_data['pins'] = [pin.to_dict() for pin in board.pins]
-      return {'board': board_data}
+        board = Board.query.filter(Board.id == board_id).one()
+        board_data = board.to_dict()
+        board_data['pins'] = [pin.to_dict() for pin in board.pins]
+        return {'board': board_data}
     except NoResultFound:
         return {'message': 'No board was found'}, 404
+
+
+@board_routes.route('/addPin/<int:boardId>/<int:pinId>', methods=['PUT'])
+@login_required
+def add_to_board(boardId, pinId):
+    """
+    Query for a board and add pin to the board, returns the updated board as a dictionary
+    """
+
+    board = Board.query.get(boardId)
+    if not board:
+        return {'error': 'Board not found'}, 404
+
+    pin = Pin.query.get(pinId)
+    if not pin:
+        return {'error': 'Pin not found'}, 404
+
+    # if pin in board.pins:
+    #     return {'error': 'Pin already in board'}, 400
+
+    board.pins.append(pin)
+    db.session.commit()
+
+    # Add entry to board_pins table
+    db.session.execute(board_pins.insert().values(
+        board_id=boardId, pin_id=pinId))
+    db.session.commit()
+
+    return {'message': 'Pin added to Board successfully'}

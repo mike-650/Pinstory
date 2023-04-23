@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import './UserPins.css'
+import { NavLink } from "react-router-dom";
 
 
 function Created() {
@@ -10,7 +11,9 @@ function Created() {
     <div className='UP-pins-container'>
       {userPins.map(pin =>
         <div key={pin.id}>
+          <NavLink to={`/pin/${pin.id}`}>
           <img className='BR-pin-images' src={pin.imageUrl} alt='Pin'></img>
+          </NavLink>
         </div>
       )}
     </div>

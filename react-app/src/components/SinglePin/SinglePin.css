@@ -40,3 +40,20 @@
 .fa-ellipsis {
   cursor: pointer;
 }
+
+.SP-top-right-section {
+  display: flex;
+  align-items: center;
+}
+
+.SP-save-button {
+  margin-left: 10px;
+}
+
+.SP-profile-drop-menu-div {
+  user-select: none;
+}
+
+.SP-profile-drop-menu-div:hover {
+  cursor: pointer;
+}

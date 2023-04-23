@@ -12,7 +12,7 @@ export const actionAllPins = (pins) => {
 
 export const actionSinglePin = (pin) => {
   return { type: SINGLE_PIN, pin }
-}
+} 
 
 export const actionUpdatePin = (pin) => {
   return { type: UPDATE_PIN, pin }

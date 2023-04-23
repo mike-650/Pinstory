@@ -1,9 +1,7 @@
 .BR-pins-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: masonry;
-  margin: 10px 40px;
-  grid-gap: 10px;
+  margin: 20px 50px;
 }
 
 
@@ -51,7 +49,7 @@
 
 .BR-pin-images {
   height: fit-content;
-  width: 210px;
+  width: 300px;
   border-radius: 15px;
   box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
 }
