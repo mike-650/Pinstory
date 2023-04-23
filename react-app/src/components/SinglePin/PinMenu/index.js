@@ -40,7 +40,6 @@ function PinMenu() {
         className={'DP-modal-button'}
       />
     </div>
-
   )
 }
 

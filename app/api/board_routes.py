@@ -4,6 +4,7 @@ from flask_wtf.csrf import generate_csrf
 # from ..forms.pin_form import PinForm
 from sqlalchemy.orm.exc import NoResultFound
 from app.models import Board, board_pins, Pin, db
+from app.forms.board_form import BoardForm
 
 board_routes = Blueprint('boards', __name__)
 
@@ -42,6 +43,36 @@ def single_board(board_id):
         return {'board': board_data}
     except NoResultFound:
         return {'message': 'No board was found'}, 404
+
+
+@board_routes.route('/newBoard', methods=['POST'])
+@login_required
+def create_board():
+    """
+    Create a board and return the newly created board as a dictionary
+    """
+    data = request.form
+    user = current_user
+
+    form = BoardForm(
+        title=data.get('title'),
+        description=data.get('description'),
+        user_id=user.id,
+        csrf_token=generate_csrf()
+    )
+
+    if form.validate_on_submit():
+        new_board = Board(
+            title=form.data['title'],
+            description=form.data['description'],
+            user_id=user.id
+        )
+        db.session.add(new_board)
+        db.session.commit()
+        return {"board":  new_board.to_dict() }, 201
+
+    if form.errors:
+        return {"message": "Invalid Data", "status": 403}
 
 
 @board_routes.route('/addPin/<int:boardId>/<int:pinId>', methods=['PUT'])

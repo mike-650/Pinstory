@@ -73,8 +73,6 @@ function NewPin() {
     } else {
       return history.push('/')
     }
-
-
   }
 
   return (

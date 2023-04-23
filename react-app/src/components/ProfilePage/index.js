@@ -5,6 +5,7 @@ import { grabUser } from '../../store/session'
 import { useState } from 'react'
 import { thunkAllPins } from '../../store/pin'
 import { thunkUserBoards } from '../../store/board'
+import BoardMenu from './BoardMenu'
 import Created from './Created'
 import Saved from './Saved'
 import './ProfilePage.css'
@@ -17,6 +18,7 @@ function ProfilePage() {
   const [savedClass, setSavedClass] = useState('PP-save-class-selected');
   const [createdPage, setCreatedPage] = useState(false);
   const [savedPage, setSavedPage] = useState(true);
+  const [boardMenu, setBoardMenu] = useState(false);
   const currUser = useSelector(state => state.session.user);
   const user = useSelector(state => state.session.singleUser);
   const userBoards = useSelector(state => Object.values(state.boards.userBoards));
@@ -48,6 +50,11 @@ function ProfilePage() {
     }
   }
 
+  const toggleBoardMenu = () => {
+    if (!boardMenu) return setBoardMenu(true)
+    else setBoardMenu(false)
+  }
+
   return (
     <div>
       <div className="PP-Top-Section">
@@ -63,7 +70,8 @@ function ProfilePage() {
         {!createdPage &&
           <div className='PP-filter-add-container'>
             <span className="material-symbols-outlined PP-icons" onClick={() => alert('Feature coming soon!')}>tune</span>
-            <span className="material-symbols-outlined PP-icons">add</span>
+            <span className="material-symbols-outlined PP-icons" onClick={toggleBoardMenu}>add</span>
+            { boardMenu && <BoardMenu /> }
           </div>
         }
         {createdPage && <Created />}
