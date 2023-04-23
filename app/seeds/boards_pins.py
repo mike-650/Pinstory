@@ -16,7 +16,12 @@ def seed_board_pins():
         {'board_id': 3, 'pin_id': 5},
         {'board_id': 3, 'pin_id': 9},
         {'board_id': 3, 'pin_id': 11},
-        {'board_id': 4, 'pin_id': 17}
+        {'board_id': 4, 'pin_id': 17},
+        {'board_id': 5, 'pin_id': 18},
+        {'board_id': 5, 'pin_id': 19},
+        {'board_id': 5, 'pin_id': 20},
+        {'board_id': 5, 'pin_id': 21}
+
     ]
 
 

@@ -1,0 +1,70 @@
+.ProfMenu-drop-down {
+  position: absolute;
+  user-select: none;
+  background-color: white;
+  border-radius: 10px;
+  width: 20%;
+  top: 18%;
+  right: 24%;
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.ProfMenu-top-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ProfMenu-board-list > p {
+  font-size: 13px;
+  margin-left: 12px;
+}
+
+.ProfMenu-board-list {
+  height: 200px;
+  overflow: scroll;
+}
+
+.ProfMenu-board-list > ul {
+  list-style: none;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 0;
+}
+
+.ProfMenu-board-list ul > div > li {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.ProfMenu-board-list ul > div > li:hover {
+  background-color: rgb(233, 233, 233);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.ProfMenu-board-list ul > div > li > img {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.ProfMenu-board-container {
+  width: 100%;
+  position: relative;
+}
+
+.ProfMenu-save-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: rgb(216, 45, 47);
+  color: white;
+  border-radius: 20px;
+}
+
+.ProfMenu-save-button:hover {
+  background-color: rgb(162, 34, 36);
+}

@@ -10,6 +10,7 @@ class Board(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(40), nullable=False)
+    description = db.Column(db.String(255))
 
     user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
 
@@ -20,5 +21,6 @@ class Board(db.Model):
         return {
             'id': self.id,
             'title': self.title,
+            'description': self.description,
             'user_id': self.user_id
         }

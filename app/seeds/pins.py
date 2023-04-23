@@ -105,8 +105,131 @@ def seed_pins():
         description="Congratulations on graduating November cohort!",
         user_id=3
     )
+    pin18 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED18.gif",
+        title="Yummy fried eggs",
+        description="Food in anime looks 10x better",
+        user_id=2
+    )
+    pin19 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED19.gif",
+        title="Cakeeee",
+        description="I don't even like cake like that",
+        user_id=3
+    )
+    pin20 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED20.gif",
+        title="Hot Pot :D",
+        description="Cravinggg",
+        user_id=2
+    )
+    pin21 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED21.gif",
+        title="Rameeeen :D",
+        description="currently craving :",
+        user_id=1
+    )
+    pin22 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED22.jpeg",
+        title="Kiki!",
+        description="Yasine's fav Ghibli",
+        user_id=2
+    )
+    pin23 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED23.jpeg",
+        title="Totorooo",
+        description="My life lol",
+        user_id=3
+    )
+    pin24 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED24.jpeg",
+        title='Simple fit',
+        description='Carhartt/Crew/Converse',
+        user_id=2
+    )
+    pin25 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED25.jpeg",
+        title='Spongebob',
+        description='Phone wallpaper',
+        user_id=2
+    )
+    pin26 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED26.jpeg",
+        title='Pixel art',
+        description='',
+        user_id=2
+    )
+    pin27 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED27.jpeg",
+        title='Havanese!!!',
+        description='my dream dog!!',
+        user_id=3
+    )
+    pin28 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED28.jpeg",
+        title='cutie havy',
+        description='so tiny',
+        user_id=3
+    )
+    pin29 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED29.jpeg",
+        title='Jennie Kim',
+        description='im speechless',
+        user_id=3
+    )
+    pin30 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED30.jpeg",
+        title='my hero cereal',
+        description='if only this was reall',
+        user_id=3
+    )
+    pin31 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED31.jpeg",
+        title='Naruto and Sasuke',
+        description='~Sun and Moon~',
+        user_id=3
+    )
+    pin32 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED32.jpeg",
+        title='Naruto!!',
+        description='favorite anime',
+        user_id=3
+    )
+    pin33 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED33.jpeg",
+        title='Haerin and Danielle',
+        description='New Jeans is awesome!!',
+        user_id=3
+    )
+    pin34 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED34.jpeg",
+        title='OOTD',
+        description='found this carhartt jacket while thrifting!',
+        user_id=3
+    )
+    pin35 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED35.jpeg",
+        title='My loves',
+        description='best kpop idols',
+        user_id=3
+    )
+    pin36 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED36.jpeg",
+        title='fun wallpaper',
+        description='anime friendss',
+        user_id=3
+    )
+    pin37 = Pin(
+        image_url="https://pinstorybucket.s3.us-west-1.amazonaws.com/pinstorySEED37.jpeg",
+        title="tanjir-o's!!!",
+        description="i feel like they'd taste like apple jacks",
+        user_id=3
+    )
 
-    allPins = [pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9, pin10, pin11, pin12, pin13, pin14, pin15, pin16, pin17]
+    allPins = [pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9,
+    pin10, pin11, pin12, pin13, pin14, pin15, pin16, pin17, pin18, pin19, pin20, pin21,
+    pin22, pin23, pin24, pin25, pin26, pin27, pin28, pin29, pin30, pin31, pin32, pin33,
+    pin34, pin35, pin36, pin37]
 
     for pin in allPins:
         db.session.add(pin)

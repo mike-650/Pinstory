@@ -5,25 +5,36 @@ from sqlalchemy.sql import text
 def seed_boards():
     board1 = Board(
         title="Studio Ghibli",
+        description="Ghibli's are the best thing to ever happen",
         user_id=3
     )
     board2 = Board(
         title="K-Pop",
+        description="If you don't like k-pop we can't be friends",
         user_id=3
     )
     board3 = Board(
         title="Clothes and Shoes",
+        description='Clothing/Shoes ideas/inspo',
         user_id=3
     )
     board4 = Board(
         title="Coding",
+        description='~We love coding~',
         user_id=1
+    )
+    board5 = Board(
+        title="Foood",
+        description="Craving!",
+        user_id=3
     )
 
     db.session.add(board1)
     db.session.add(board2)
     db.session.add(board3)
     db.session.add(board4)
+    db.session.add(board5)
+
 
     db.session.commit()
 

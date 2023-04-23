@@ -1,7 +1,6 @@
 .SB-title-ellipsis {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .SB-profile-picture-container {
@@ -9,17 +8,45 @@
   justify-content: center;
 }
 
+.SB-profile-user-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 7px;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgb(95, 95, 95);
+}
+
+
+.PP-board-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .SP-pins-filter-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-left: 2%;
   margin-right: 2%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  height: 42px;
 }
 
 .SP-board-pins-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: center;
   margin: 20px 150px;
   width: 80%;
+}
+
+.PP-edit-board {
+  position: absolute;
+  background-color: red;
+  right: 2%;
 }

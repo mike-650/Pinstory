@@ -21,6 +21,7 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let err = {};
+		username.toLowerCase();
 
 		if (firstName.length > 20 || firstName.length < 2) err.firstName = 'First name must be between 2 and 20 characters';
 		if (lastName.length > 20 || lastName.length < 2) err.lastName = 'Last name must be between 2 and 20 characters';
