@@ -1,0 +1,52 @@
+.BPM-Header {
+  display: flex;
+  justify-content: center;
+}
+
+.BPM-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.BPM-title-header {
+  font-size: 12px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.BPM-title-input {
+  width: 85%;
+  padding: 10px;
+  border-radius: 14px;
+  border: 2px solid rgb(205, 205, 205);
+}
+
+.BPM-secret-field {
+  display: flex;
+}
+
+.BPM-secret-field > input {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.BPM-create-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.BPM-create-btn {
+  border: transparent;
+  border-radius: 20px;
+  color: rgb(95, 95, 95);
+  font-size: 16px;
+  padding: 14px;
+}
+
+.BPM-create-btn:hover {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+}

@@ -44,7 +44,7 @@ function ProfileMenu() {
             onMouseLeave={() => setSaveBtn(false)}
             key={board.id}
             >
-              <img src={board.pins[0].imageUrl} alt='Board Picture'></img>
+              <img src={board.pins[0]?.imageUrl ? board.pins[0].imageUrl : 'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='Board Picture'></img>
               <p style={{marginLeft:'6px'}}>{board.title.length > 14 ? board.title.substr(0, 14 - 1) + "…" : board.title}</p>
               { saveBtn && (saveId === board.id) && <div className='ProfMenu-save-button' onClick={() =>saveToBoard(board.id)}>Save</div>}
             </li>

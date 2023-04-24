@@ -1,0 +1,59 @@
+.BM-drop-menu {
+  position: absolute;
+  right: 5.7%;
+  top: 60%;
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.BM-inner-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  width: 200px;
+}
+
+.BM-inner-selection > h5 {
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.BM-h4 {
+  margin: 0;
+  width: 80%;
+  padding: 10px;
+  user-select: none;
+}
+
+.BM-h4:hover {
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.BM-board-button {
+  display: flex;
+  margin: 0;
+  width: 90%;
+  padding: 10px;
+  font-size: 16px;
+  font: inherit;
+  font-weight: bold;
+  background: transparent;
+  border: transparent;
+}
+
+.BM-board-button:hover {
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+}
