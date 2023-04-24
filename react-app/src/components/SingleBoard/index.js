@@ -12,6 +12,7 @@ function SingleBoard() {
   const [ showMenu, setShowMenu ] = useState(false);
   const board = useSelector(state => state.boards.singleBoard)
   const user = useSelector(state => state.session.singleUser)
+  
 
   useEffect(() => {
     dispatch(thunkSingleBoard(boardId))

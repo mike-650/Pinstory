@@ -27,8 +27,10 @@ function Saved({ userBoards, userId, username }) {
               <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'}></img>
             </>}
           </div>
-          <h4>{board.title}</h4>
-          {board.pins.length === 1 ? <p>{board.pins.length} pin</p> : <p>{board.pins.length} pins</p>}
+          <div className="SPB-title-total-pin-header">
+            <h4>{board.title}</h4>
+            {board.pins.length === 1 ? <p>{board.pins.length} pin</p> : <p>{board.pins.length} pins</p>}
+          </div>
         </div>
       )}
     </div>

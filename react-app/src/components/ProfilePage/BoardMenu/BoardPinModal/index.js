@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { useModal } from '../../../../context/Modal';
 import './BoardPinModal.css'
-import { useDispatch } from 'react-redux';
-import { thunkCreateBoard } from '../../../../store/board';
+import { useDispatch, useSelector } from 'react-redux';
+import { thunkCreateBoard, thunkUserBoards } from '../../../../store/board';
 import { useHistory } from 'react-router-dom';
 
 function BoardPinModal() {
   const dispatch = useDispatch();
-  const history = useHistory();
   const [title, setTitle] = useState('');
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
+  const userId = useSelector(state => state.session.user.id)
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -24,9 +24,9 @@ function BoardPinModal() {
 
     formData.append('title', title);
 
-    dispatch(thunkCreateBoard(formData));
+    dispatch(thunkCreateBoard(formData, userId));
     closeModal();
-    return history.push('/')
+    return;
   }
 
   return (

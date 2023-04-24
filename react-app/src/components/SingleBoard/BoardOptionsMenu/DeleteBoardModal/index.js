@@ -1,17 +1,20 @@
 import { useParams, useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useModal } from "../../../../context/Modal"
+import { thunkDeleteBoard } from '../../../../store/board'
+import './DeleteBoardModal.css'
 
 function DeleteBoardModal() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { closeModal } = useModal();
-  const { boardId } = useParams();
+  const boardId = useSelector(state => state.boards.singleBoard.id)
+  const user = useSelector(state => state.session.user.username)
 
   const handleDelete = () => {
-    // dispatch(thunkDeleteBoard(boardId))
+    dispatch(thunkDeleteBoard(boardId))
     closeModal();
-    return history.push('/browse')
+    return history.push(`/profile/${user}`)
   }
 
   return (

@@ -39,7 +39,10 @@ def single_board(board_id):
     try:
         board = Board.query.filter(Board.id == board_id).one()
         board_data = board.to_dict()
+        # print('BOARD DATA BEFORE  :   ', board_data)
         board_data['pins'] = [pin.to_dict() for pin in board.pins]
+        # print('BOARD DATA AFTER  :   ', board_data)
+
         return {'board': board_data}
     except NoResultFound:
         return {'message': 'No board was found'}, 404
@@ -102,3 +105,20 @@ def add_to_board(boardId, pinId):
     db.session.commit()
 
     return {'message': 'Pin added to Board successfully'}
+
+
+@board_routes.route('/deleteBoard/<int:boardId>', methods=['DELETE'])
+@login_required
+def delete_board(boardId):
+    board = Board.query.filter_by(id=boardId).first()
+    if not board:
+        return {'error': 'Board not found'}, 404
+
+    # Delete all songs associated with the playlist from the playlist_songs table
+    db.session.query(board_pins).filter_by(board_id=boardId).delete()
+
+    # Delete the playlist itself from the playlists table
+    db.session.delete(board)
+    db.session.commit()
+
+    return {'message': 'Board deleted successfully'}, 200
