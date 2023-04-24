@@ -10,8 +10,13 @@
 }
 
 .EB-header>i {
-  position: absolute;
-  right: 10%;
+  right: 5%;
+}
+
+.EB-header>i:hover {
+  cursor: pointer;
+  background-color: rgb(233, 233, 233);
+  border-radius: 2px;
 }
 
 .EB-form {
