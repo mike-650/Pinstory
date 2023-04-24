@@ -3,6 +3,7 @@ import OpenModalButton from '../../OpenModalButton';
 import DeleteBoardModal from './DeleteBoardModal'
 import './BoardOptions.css'
 import EditBoardModal from './EditBoardModal';
+import { useParams } from 'react-router-dom';
 
 function BoardOptionsMenu() {
   const dropdownRef = useRef(null);

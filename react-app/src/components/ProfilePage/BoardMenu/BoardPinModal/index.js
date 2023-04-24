@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useModal } from '../../../../context/Modal';
-import './BoardPinModal.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { thunkCreateBoard, thunkUserBoards } from '../../../../store/board';
-import { useHistory } from 'react-router-dom';
+import { thunkCreateBoard } from '../../../../store/board';
+import './BoardPinModal.css'
+
 
 function BoardPinModal() {
   const dispatch = useDispatch();

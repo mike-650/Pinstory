@@ -21,7 +21,7 @@ export const actionCreateBoard = (board) => {
 }
 
 export const actionAddPinToBoard = (board) => {
-  return { type: ADD_PIN_TO_BOARD, board}
+  return { type: ADD_PIN_TO_BOARD, board }
 }
 
 export const actionDeleteBoard = (boardId) => {
@@ -70,14 +70,26 @@ export const thunkCreateBoard = (board, userId) => async dispatch => {
   }
 }
 
+export const thunkEditBoard = (boardId, data) => async dispatch => {
+  const response = await fetch(`/api/boards/editBoard/${boardId}`, {
+    method:'PUT',
+    body: data
+  });
+
+  if (response.ok) {
+    dispatch(thunkSingleBoard(boardId));
+    return;
+  }
+}
+
 export const thunkAddPinToBoard = (boardId, pinId) => async dispatch => {
   const response = await fetch(`/api/boards/addPin/${boardId}/${pinId}`, {
     method:'PUT'
   })
 
   if (response.ok) {
-    const data = await response.json();
-    console.log('UPDATED BOARD', data)
+    // TODO:
+    return;
   }
 }
 
@@ -104,7 +116,7 @@ const initialState = {
 const boardsReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_BOARDS:
-      return { ...state, userBoards: { ...action.boards } }
+      return { ...state, userBoards: { ...action.boards }}
     case SINGLE_BOARD:
       return { ...state, singleBoard: { ...action.board }}
     case DELETE_BOARD:
