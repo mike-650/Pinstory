@@ -9,6 +9,7 @@ function ProfileMenu() {
   const { pinId } = useParams();
   const [ saveBtn, setSaveBtn ] = useState(false);
   const [ saveId, setSaveId] = useState(null);
+  const [ menu, setMenu] = useState('ProfMenu-drop-down');
   const boards = useSelector(state => Object.values(state.boards?.userBoards));
   const userId = useSelector(state => state.session.user?.id);
 
@@ -23,14 +24,12 @@ function ProfileMenu() {
   }
 
   const saveToBoard = (boardId) => {
-    // TODO:
-    console.log(boardId)
-    console.log(pinId)
     dispatch(thunkAddPinToBoard(boardId, pinId))
+    return setMenu('hidden');
   }
 
   return (
-    <div className="ProfMenu-drop-down">
+    <div className={menu}>
       <div className='ProfMenu-top-sec'>
         <h4>Save</h4>
       </div>

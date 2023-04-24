@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
 from flask_wtf.csrf import generate_csrf
 # from ..forms.pin_form import PinForm
@@ -72,10 +72,43 @@ def create_board():
         )
         db.session.add(new_board)
         db.session.commit()
-        return {"board":  new_board.to_dict() }, 201
+        return {"board":  new_board.to_dict()}, 201
 
     if form.errors:
         return {"message": "Invalid Data", "status": 403}
+
+
+@board_routes.route('/editBoard/<int:board_id>', methods=['PUT'])
+@login_required
+def update_board(board_id):
+    """
+    Query for a board and update the contents, returns the updated board as a dictionary
+    """
+    data = request.form
+    user = current_user.id
+
+    board = Board.query.get(board_id)
+    if not board:
+        return jsonify({'error': 'Board not found'}), 404
+
+    form = BoardForm(
+        title=data.get('title'),
+        description=data.get('description'),
+        user_id=user,
+        csrf_token = generate_csrf()
+    )
+
+    if not form.validate_on_submit():
+        return jsonify({'errors': form.errors}), 422
+
+    board.title = form.data['title']
+    board.description = form.data['description']
+    board.user_id = form.data['user_id']
+
+    db.session.add(board)
+    db.session.commit()
+
+    return jsonify({'board': board.to_dict()})
 
 
 @board_routes.route('/addPin/<int:boardId>/<int:pinId>', methods=['PUT'])

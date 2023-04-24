@@ -3,21 +3,32 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useModal } from "../../../../context/Modal"
 import './EditBoardModal.css'
 import { useState } from 'react';
+import { thunkEditBoard } from '../../../../store/board';
 
 function EditBoardModal() {
   const dispatch = useDispatch();
-  const history = useHistory();
   const { closeModal } = useModal();
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [errors, setErrors] = useState({});
-  const boardId = useSelector(state => state.boards.singleBoard.id)
-  const user = useSelector(state => state.session.user.username)
+  const boardId = useSelector(state => state.boards.singleBoard.id);
 
   const handleEdit = (e) => {
     e.preventDefault();
+    let err = {};
 
+    if (title.length <= 0) err.title = "Don't forget to name your board!";
+    if (title.length > 21) err.title = "Title must be less than 20 characters";
+    if (description.length >= 120) err.description = 'Description must be less than 120 characters';
 
-    // dispatch(thunkEditBoard(boardId))
+    if (Object.values(err).length) return setErrors(err);
+
+    const formData = new FormData();
+
+    formData.append('title', title);
+    formData.append('description', description);
+
+    dispatch(thunkEditBoard(boardId, formData));
     closeModal();
     return;
   }
@@ -26,7 +37,7 @@ function EditBoardModal() {
     <div className='EB-Modal'>
       <div className='EB-header'>
         <h2>Edit your board</h2>
-        <i class="fa-solid fa-xmark"></i>
+        <i className="fa-solid fa-xmark"></i>
       </div>
       <div className='EB-form'>
         <form onSubmit={(e) => handleEdit(e)}>
@@ -47,11 +58,12 @@ function EditBoardModal() {
           <textarea
             type='text'
             placeholder="What's your board about?"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             className='BPM-title-input EB-text-area'
             >
           </textarea>
+          {errors.description && <p style={{ color: 'red', fontSize: '12px' }}>{errors.description}</p>}
             </div>
           <div className='BPM-secret-field'>
             <input

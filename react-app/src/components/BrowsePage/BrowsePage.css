@@ -4,9 +4,7 @@
   margin: 20px 50px; */
   width: 87%;
   column-count: 5;
-  margin-top: 1em;
   margin-left: 5.2em;
-  /* gap: 0; */
 }
 
 
@@ -14,28 +12,37 @@
 
 @media only screen and (max-width: 1370px) {
   .BR-pins-container {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 10px 40px;
-    grid-gap: 10px;
+    grid-gap: 10px; */
+    width: 87%;
+    column-count: 4;
+    margin-left: 5.2em;
   }
 }
 
-@media only screen and (max-width: 925px) {
+@media only screen and (max-width: 1110px) {
   .BR-pins-container {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 10px 40px;
-    grid-gap: 10px;
+    grid-gap: 10px; */
+    width: 87%;
+    column-count: 3;
+    margin-left: 5.2em;
   }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 850px) {
   .BR-pins-container {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 10px 40px;
-    grid-gap: 10px;
+    grid-gap: 10px; */
+    width: 90%;
+    column-count: 2;
+    margin-left: 3.2em;
   }
 }
 
