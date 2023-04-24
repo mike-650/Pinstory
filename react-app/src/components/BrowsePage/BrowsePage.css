@@ -1,14 +1,16 @@
 .BR-pins-container {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin: 20px 50px;
+  margin: 20px 50px; */
+  width: 87%;
+  column-count: 5;
+  margin-top: 1em;
+  margin-left: 5.2em;
+  /* gap: 0; */
 }
 
 
-.BR-images-box {
-  margin-right: 10px;
-  margin-bottom: 15px;
-}
+
 
 @media only screen and (max-width: 1370px) {
   .BR-pins-container {
@@ -38,22 +40,18 @@
 }
 
 .BR-images-box {
-  height: auto;
+  /* CAN USE THIS FOR ALL PINS? */
+  /* height: 100px; */
 }
 
-
-.BR-NavLink {
-  height: fit-content;
-  width: fit-content;
-}
-
-.BR-pin-images {
-  height: fit-content;
-  width: 300px;
+#BR-pin-images {
+  width: 240px;
+  padding: 0;
+  margin-top: 20px;
   border-radius: 15px;
   box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
 }
 
-.BR-pin-images:hover {
+#BR-pin-images:hover {
   opacity: .7;
 }
