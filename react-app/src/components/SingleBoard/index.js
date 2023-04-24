@@ -12,7 +12,7 @@ function SingleBoard() {
   const [ showMenu, setShowMenu ] = useState(false);
   const board = useSelector(state => state.boards.singleBoard)
   const user = useSelector(state => state.session.singleUser)
-  
+
 
   useEffect(() => {
     dispatch(thunkSingleBoard(boardId))
@@ -30,7 +30,7 @@ function SingleBoard() {
           <h1>{board?.title}</h1>
       </div>
       <div className='SB-profile-picture-container'>
-        <img className="PP-profile-picture" src={`${user?.profilePicture}`} alt='Profile Picture'></img>
+        <img className="PP-profile-picture" src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile Picture'></img>
       </div>
       <div className='SB-profile-user-name'>
         @{user?.username}

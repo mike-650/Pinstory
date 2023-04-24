@@ -1,17 +1,18 @@
-import { useParams, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useModal } from "../../../../context/Modal"
-import './EditBoardModal.css'
 import { useState } from 'react';
 import { thunkEditBoard } from '../../../../store/board';
 
+import './EditBoardModal.css'
+
+
 function EditBoardModal() {
   const dispatch = useDispatch();
+  const board = useSelector(state => state.boards.singleBoard);
   const { closeModal } = useModal();
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState('' || board.title);
+  const [description, setDescription] = useState('' || board.description);
   const [errors, setErrors] = useState({});
-  const boardId = useSelector(state => state.boards.singleBoard.id);
 
   const handleEdit = (e) => {
     e.preventDefault();
@@ -28,7 +29,7 @@ function EditBoardModal() {
     formData.append('title', title);
     formData.append('description', description);
 
-    dispatch(thunkEditBoard(boardId, formData));
+    dispatch(thunkEditBoard(board.id, formData));
     closeModal();
     return;
   }
@@ -37,7 +38,7 @@ function EditBoardModal() {
     <div className='EB-Modal'>
       <div className='EB-header'>
         <h2>Edit your board</h2>
-        <i className="fa-solid fa-xmark"></i>
+        <i className="fa-solid fa-xmark" onClick={() => closeModal()}></i>
       </div>
       <div className='EB-form'>
         <form onSubmit={(e) => handleEdit(e)}>
