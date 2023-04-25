@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import './SavedPins.css'
 import { thunkSavedPins } from '../../store/pin';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 function SavedPins() {
   const dispatch = useDispatch();
@@ -20,8 +21,12 @@ function SavedPins() {
       <div className="SavedPins-container">
         {pins.map(pin =>
           <div className="SavedPin-div">
-            <img src={pin.imageUrl} alt={pin.title}></img>
-            <p>{pin.title}</p>
+            <div className='SavedPin-content'>
+              <NavLink to={`/pin/${pin.id}`}>
+              <img className='SavedPin-image' src={pin.imageUrl} alt={pin.title}></img>
+              </NavLink>
+              <span>{pin.title}</span>
+            </div>
           </div>
         )}
       </div>
