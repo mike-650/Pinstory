@@ -1,4 +1,4 @@
-import { NavLink, useParams } from 'react-router-dom'
+import { NavLink, useHistory, useParams } from 'react-router-dom'
 import './SingleBoard.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -10,6 +10,7 @@ import RemovePinModal from './RemovePinModal';
 function SingleBoard() {
   const { userName, boardId } = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const [removePinMenu, setRemovePinMenu] = useState(false);
   const [showEllipsis, setShowEllipsis] = useState(false);
@@ -74,7 +75,7 @@ function SingleBoard() {
         )}
       </div>
     </div>
-  )
+   )
 }
 
 export default SingleBoard

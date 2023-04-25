@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import ProfilePage from "./components/ProfilePage";
 import SinglePin from "./components/SinglePin";
 import SingleBoard from "./components/SingleBoard";
+import SavedPins from "./components/SavedPins";
 import NewPin from "./components/NewPin";
 import NotFound from "./components/NotFound";
 
@@ -36,11 +37,15 @@ function App() {
             <Navigation />
             <NewPin />
           </ProtectedRoute>
+          <ProtectedRoute exact path="/profile/:userName/saved-pins">
+            <Navigation />
+            <SavedPins />
+          </ProtectedRoute>
           <ProtectedRoute exact path="/profile/:userName">
             <Navigation />
             <ProfilePage />
           </ProtectedRoute>
-          <ProtectedRoute exact path="/profile/:userName/:boardId">
+          <ProtectedRoute path="/profile/:userName/:boardId">
             <Navigation />
             <SingleBoard />
           </ProtectedRoute>

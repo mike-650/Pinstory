@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { thunkSinglePin } from '../../store/pin';
+import { thunkSavePin, thunkSavedPins, thunkSinglePin } from '../../store/pin';
 
 import './SinglePin.css'
 import PinMenu from './PinMenu';
@@ -15,9 +15,11 @@ function SinglePin() {
 
   const pinDetails = useSelector(state => state.pins.singlePin)
   const userId = useSelector(state => state.session.user.id)
+  const savedPins = useSelector(state => Object.values(state.pins.savedPins).map(pin => pin.id))
 
   useEffect(() => {
     dispatch(thunkSinglePin(pinId))
+    dispatch(thunkSavedPins())
   }, [dispatch, pinId])
 
   const toggleMenu = () => {
@@ -28,6 +30,12 @@ function SinglePin() {
   const toggleProfileMenu = () => {
     if (!profileMenu) return setProfileMenu(true);
     else return setProfileMenu(false);
+  }
+
+  const handleSave = () => {
+    console.log('PIN ID  : ', pinId)
+    dispatch(thunkSavePin(pinId))
+    return;
   }
 
   return (
@@ -44,7 +52,7 @@ function SinglePin() {
               <div className='SP-profile-drop-menu-div' onClick={toggleProfileMenu}>Profile <i className="fa-solid fa-chevron-down fa-sm"></i></div>
               { profileMenu && <ProfileMenu />}
               <div className="NP-save-button SP-save-button">
-                <button id='NP-save'>Save</button>
+                { !savedPins.includes(parseInt(pinId)) ? <button id='NP-save' onClick={handleSave}>Save</button> : <button id='NP-save' onClick={() => alert('You saved this already')}>Saved</button>}
               </div>
             </div>
           </div>

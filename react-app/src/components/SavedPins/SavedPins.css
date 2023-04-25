@@ -1,0 +1,35 @@
+.SavedPins-header {
+  display: flex;
+  justify-content: center;
+}
+
+.SavedPins-container {
+  /* display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  margin: 10px 50px; */
+  width: 90%;
+  column-count: 8;
+  margin-left: 4.5em;
+}
+
+.SavedPin-div {
+  width: fit-content;
+  height: fit-content;
+}
+
+.SavedPin-image {
+  height: auto;
+  width: 150px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.SavedPin-image:hover {
+  opacity: .8;
+}
+
+.SavedPin-content {
+  margin-bottom: 15px;
+}
