@@ -5,6 +5,7 @@
   background-color: white;
   border-radius: 10px;
   padding-bottom: 10px;
+  z-index: 100;
   box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
 }
 

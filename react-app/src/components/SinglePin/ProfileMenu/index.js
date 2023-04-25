@@ -3,9 +3,11 @@ import './ProfileMenu.css';
 import { useEffect, useState } from 'react';
 import { thunkAddPinToBoard, thunkUserBoards } from '../../../store/board';
 import { useParams } from 'react-router-dom';
+import { useRef } from 'react';
 
 function ProfileMenu() {
   const dispatch = useDispatch();
+  const dropdownRef = useRef();
   const { pinId } = useParams();
   const [ saveBtn, setSaveBtn ] = useState(false);
   const [ saveId, setSaveId] = useState(null);
@@ -16,6 +18,21 @@ function ProfileMenu() {
   useEffect(() => {
     dispatch(thunkUserBoards(userId))
   }, [dispatch])
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setMenu('hidden')
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+
+  }, [dropdownRef])
 
   const toggleSave = (boardId) => {
     setSaveId(boardId)
@@ -29,7 +46,7 @@ function ProfileMenu() {
   }
 
   return (
-    <div className={menu}>
+    <div className={menu} ref={dropdownRef}>
       <div className='ProfMenu-top-sec'>
         <h4>Save</h4>
       </div>

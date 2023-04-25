@@ -20,6 +20,8 @@ class User(db.Model, UserMixin):
     pins = db.relationship('Pin', back_populates='user')
     boards = db.relationship('Board', back_populates='user')
 
+    saved_pins = db.relationship('Pin', secondary='saved_pins', back_populates='saved_by_users')
+
     @property
     def password(self):
         return self.hashed_password
@@ -38,5 +40,6 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'firstName': self.first_name,
             'lastName': self.last_name,
-            'profilePicture': self.profile_picture
+            'profilePicture': self.profile_picture,
+            'saved_pins': [pin.to_dict() for pin in self.saved_pins]
         }

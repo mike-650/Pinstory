@@ -39,9 +39,9 @@ def single_board(board_id):
     try:
         board = Board.query.filter(Board.id == board_id).one()
         board_data = board.to_dict()
-        # print('BOARD DATA BEFORE  :   ', board_data)
+
         board_data['pins'] = [pin.to_dict() for pin in board.pins]
-        # print('BOARD DATA AFTER  :   ', board_data)
+
 
         return {'board': board_data}
     except NoResultFound:
@@ -126,9 +126,6 @@ def add_to_board(boardId, pinId):
     if not pin:
         return {'error': 'Pin not found'}, 404
 
-    # if pin in board.pins:
-    #     return {'error': 'Pin already in board'}, 400
-
     board.pins.append(pin)
     db.session.commit()
 
@@ -140,9 +137,26 @@ def add_to_board(boardId, pinId):
     return {'message': 'Pin added to Board successfully'}
 
 
+@board_routes.route('/removePin/<int:pinId>/<int:boardId>', methods=['PUT'])
+@login_required
+def remove_pin(pinId, boardId):
+    """
+    Remove a pin from a board
+    """
+    delete_stmt = board_pins.delete().where((board_pins.c.board_id == boardId) & (board_pins.c.pin_id == pinId))
+    db.session.execute(delete_stmt)
+
+    db.session.commit()
+
+    return {'message': 'Pin removed successfully'}, 200
+
+
 @board_routes.route('/deleteBoard/<int:boardId>', methods=['DELETE'])
 @login_required
 def delete_board(boardId):
+    """
+    Quert for a board and delete it
+    """
     board = Board.query.filter_by(id=boardId).first()
     if not board:
         return {'error': 'Board not found'}, 404
