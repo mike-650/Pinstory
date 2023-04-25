@@ -1,7 +1,6 @@
 // TODO: CONSTANTS
 const ALL_PINS = 'ALL_PINS';
 const SINGLE_PIN = 'SINGLE_PIN';
-const SAVE_PIN = 'SAVE_PIN';
 const SAVED_PINS = 'SAVED_PINS';
 const UPDATE_PIN = 'UPDATE_PIN';
 const DELETE_PIN = 'DELETE_PIN';
@@ -62,6 +61,17 @@ export const thunkSinglePin = (pinId) => async dispatch => {
 export const thunkSavePin = (pinId) => async dispatch => {
   const response = await fetch(`/api/pins/savePin/${pinId}`, {
     method:'POST'
+  })
+
+  if (response.ok) {
+    // TODO
+    return;
+  }
+}
+
+export const thunkUnsavePin = (pinId) => async dispatch => {
+  const response = await fetch(`/api/pins/unsavePin/${pinId}`, {
+    method:'DELETE'
   })
 
   if (response.ok) {

@@ -96,7 +96,8 @@ function NewPin() {
               setImgFile={setImgFile}
               errors={errors}
               uploadedFile={uploadedFile}
-              setUploadedFile={setUploadedFile} />
+              setUploadedFile={setUploadedFile}
+            />
           </div>
           <div className='NP-create-pin-right-side'>
             {errors.imgFile && <span className="NP-errors">{errors.imgFile}</span>}
