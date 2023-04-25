@@ -126,9 +126,6 @@ def add_to_board(boardId, pinId):
     if not pin:
         return {'error': 'Pin not found'}, 404
 
-    # if pin in board.pins:
-    #     return {'error': 'Pin already in board'}, 400
-
     board.pins.append(pin)
     db.session.commit()
 
@@ -157,6 +154,9 @@ def remove_pin(pinId, boardId):
 @board_routes.route('/deleteBoard/<int:boardId>', methods=['DELETE'])
 @login_required
 def delete_board(boardId):
+    """
+    Quert for a board and delete it
+    """
     board = Board.query.filter_by(id=boardId).first()
     if not board:
         return {'error': 'Board not found'}, 404

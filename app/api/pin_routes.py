@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from flask_wtf.csrf import generate_csrf
 from ..forms.pin_form import PinForm
-from app.models import Pin, db
+from app.models import Pin, db, User, saved_pins
 from .AWS_helpers import get_unique_filename, upload_file_to_s3
 
 pin_routes = Blueprint('pins', __name__)
@@ -22,7 +22,7 @@ def all_pins():
 @login_required
 def single_pin(pin_id):
     """
-    Query for one pinsand returns it in a dictionary
+    Query for one pin and return it in a dictionary
     """
     pin = Pin.query.filter(Pin.id==pin_id).one()
 
@@ -31,6 +31,9 @@ def single_pin(pin_id):
 @pin_routes.route('/singlePin', methods=['POST'])
 @login_required
 def create_pin():
+    """
+    Create pin
+    """
     data = request.files
     user = current_user
 
@@ -91,6 +94,9 @@ def update_pin(pin_id):
 @pin_routes.route('/deletePin/<int:pin_id>', methods=['DELETE'])
 @login_required
 def delete_pin(pin_id):
+    """
+    Query for one pin and delete it
+    """
     pin = Pin.query.filter(Pin.id==pin_id).one()
 
     if pin:
@@ -99,3 +105,43 @@ def delete_pin(pin_id):
         return {'message': 'Pin deleted successfully', 'status': 200}
     else:
         return {'error': 'Pin not found', 'status': 404}
+
+
+@pin_routes.route('/savePin')
+@login_required
+def all_saved_pins():
+    """
+    Query for all saved pins for the logged user
+    """
+    user = User.query.get(current_user.id)
+    if not user:
+        return {'error': 'User not found'}, 404
+    
+    saved_pins = [pin.to_dict() for pin in user.saved_pins]
+    return { 'saved_pins': saved_pins }
+
+
+@pin_routes.route('/savePin/<int:pin_id>', methods=['POST'])
+@login_required
+def save_pin(pin_id):
+    """
+    Save a pin for a user
+    """
+
+    user = User.query.get(current_user.id)
+    if not user:
+        return {'error': 'User not found'}, 404
+
+    pin = Pin.query.get(pin_id)
+    if not pin:
+        return {'error': 'Pin not found'}, 404
+
+    user.pins.append(pin)
+    db.session.commit()
+
+    # Add entry to board_pins table
+    db.session.execute(saved_pins.insert().values(
+        user_id=current_user.id, pin_id=pin_id))
+    db.session.commit()
+
+    return {'message': 'Pin added to Board successfully'}
