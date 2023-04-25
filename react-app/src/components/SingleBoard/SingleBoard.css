@@ -41,7 +41,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: center;
-  margin: 20px 150px;
+  margin: 0 150px;
   width: 80%;
 }
 
@@ -50,3 +50,42 @@
   background-color: red;
   right: 2%;
 }
+
+
+
+
+
+.SP-board-container {
+  position: relative;
+}
+
+
+
+.SB-ellipsis {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  /* z-index: 100; */
+  padding: 20px 10px;
+  border-radius: 50px;
+  background-color: rgb(233, 233, 233);
+  opacity: .6;
+  color: black;
+}
+
+.SB-ellipsis:hover {
+  opacity: 1;
+}
+
+
+.SB-board-images {
+  /* position: relative; */
+}
+
+.SB-board-images:hover {
+  opacity: .8;
+}
+
+/* .SP-board-container {
+
+} */

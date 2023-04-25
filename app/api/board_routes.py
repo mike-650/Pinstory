@@ -39,9 +39,9 @@ def single_board(board_id):
     try:
         board = Board.query.filter(Board.id == board_id).one()
         board_data = board.to_dict()
-        # print('BOARD DATA BEFORE  :   ', board_data)
+
         board_data['pins'] = [pin.to_dict() for pin in board.pins]
-        # print('BOARD DATA AFTER  :   ', board_data)
+
 
         return {'board': board_data}
     except NoResultFound:
@@ -138,6 +138,20 @@ def add_to_board(boardId, pinId):
     db.session.commit()
 
     return {'message': 'Pin added to Board successfully'}
+
+
+@board_routes.route('/removePin/<int:pinId>/<int:boardId>', methods=['PUT'])
+@login_required
+def remove_pin(pinId, boardId):
+    """
+    Remove a pin from a board
+    """
+    delete_stmt = board_pins.delete().where((board_pins.c.board_id == boardId) & (board_pins.c.pin_id == pinId))
+    db.session.execute(delete_stmt)
+
+    db.session.commit()
+
+    return {'message': 'Pin removed successfully'}, 200
 
 
 @board_routes.route('/deleteBoard/<int:boardId>', methods=['DELETE'])

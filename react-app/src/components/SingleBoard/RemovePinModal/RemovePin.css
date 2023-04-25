@@ -1,0 +1,10 @@
+.RP-Modal {
+  z-index: 1001;
+}
+
+.RP-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
