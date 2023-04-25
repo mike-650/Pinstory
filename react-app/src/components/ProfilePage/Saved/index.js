@@ -19,11 +19,11 @@ function Saved({ userBoards, userId, username }) {
   return (
     <div className="SPB-boards-pins-container">
       <div>
-        <div className='SPB-grid-preview' onClick={() => history.push(`/profile/${username}/saved-pins`)}>
+        <NavLink to={`/profile/${username}/saved-pins`} className='SPB-grid-preview'>
           {savedPins.slice(0, 3)?.map(pin =>
             <img className='SPB-images' src={pin.imageUrl} alt={pin.title} ></img>
           )}
-        </div>
+        </NavLink>
         <div className="SPB-title-total-pin-header">
           <h4>Saved Pins</h4>
           {savedPins.length === 1 ? <p>{savedPins.length} pin</p> : <p>{savedPins.length} pins</p>}

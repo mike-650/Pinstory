@@ -1,0 +1,17 @@
+.SavedPins-header {
+  display: flex;
+  justify-content: center;
+}
+
+.SavedPins-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  margin: 10px 50px;
+}
+
+.SavedPin-div > img {
+  height: auto;
+  width: 200px;
+  border-radius: 10px;
+}
