@@ -62,7 +62,7 @@ function SingleBoard() {
         <i className="fa-solid fa-ellipsis fa-xl" onClick={() => editBoard()}></i>
       </div>
       {showMenu && <BoardOptionsModal />}
-      {removePinMenu && <RemovePinModal pinId={pinId} boardId={board.id}/>}
+      {removePinMenu && <RemovePinModal pinId={pinId} boardId={board.id} />}
       <div className='SP-board-pins-container'>
         {board.pins?.map(pin =>
           <div className='SP-board-container' key={pin.id}>
@@ -75,7 +75,7 @@ function SingleBoard() {
         )}
       </div>
     </div>
-   )
+  )
 }
 
 export default SingleBoard

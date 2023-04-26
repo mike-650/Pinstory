@@ -2,8 +2,10 @@
   /* display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin: 20px 50px; */
-  width: 87%;
+  width: fit-content;
   column-count: 5;
+  margin-top: 20px;
+  gap: 20px;
   margin-left: 5.2em;
 }
 
@@ -46,19 +48,75 @@
   }
 }
 
-.BR-images-box {
-  /* CAN USE THIS FOR ALL PINS? */
-  /* height: 100px; */
-}
-
 #BR-pin-images {
   width: 240px;
   padding: 0;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border-radius: 15px;
   box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.5);
 }
 
-#BR-pin-images:hover {
-  opacity: .7;
+.BR-img-container {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.BR-img-overlay {
+  position: absolute;
+  left: 0;
+  width: 240px;
+  height: 99.2%;
+  opacity: 0;
+  border-radius: 15px;
+  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.BR-img-overlay:hover {
+  opacity: 1;
+}
+
+.BR-overlay-content {
+  position: relative;
+  top: 2.5rem;
+  left: 120px;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.BR-profile-drop-down:hover {
+
+}
+
+.BR-save-div {
+  background-color: rgb(215, 46, 47);
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.BR-save-div:hover {
+  background-color: rgb(162, 34, 36);
+}
+
+.BR-saved-div {
+  background-color: rgb(0, 0, 0);
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.BR-over-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.BR-saved-to-prof-div {
+  width: 50%;
+  display: flex;
+  text-align: left;
 }

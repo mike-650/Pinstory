@@ -1,6 +1,8 @@
 // TODO: CONSTANTS
 const ALL_PINS = 'ALL_PINS';
 const SINGLE_PIN = 'SINGLE_PIN';
+const SAVE_PIN = 'SAVE_PIN';
+const UNSAVE_PIN = 'UNSAVE_PIN';
 const SAVED_PINS = 'SAVED_PINS';
 const UPDATE_PIN = 'UPDATE_PIN';
 const DELETE_PIN = 'DELETE_PIN';
@@ -13,6 +15,14 @@ export const actionAllPins = (pins) => {
 
 export const actionSinglePin = (pin) => {
   return { type: SINGLE_PIN, pin }
+}
+
+export const actionSavePin = (pin) => {
+  return { type: SAVE_PIN, pin }
+}
+
+export const actionUnsavePin = (pin) => {
+  return { type: UNSAVE_PIN, pin }
 }
 
 export const actionSavedPins = (pins) => {
@@ -64,7 +74,8 @@ export const thunkSavePin = (pinId) => async dispatch => {
   })
 
   if (response.ok) {
-    // TODO
+    const data = await response.json();
+    dispatch(actionSavePin(data.pin))
     return;
   }
 }
@@ -75,7 +86,8 @@ export const thunkUnsavePin = (pinId) => async dispatch => {
   })
 
   if (response.ok) {
-    // TODO
+    const data = await response.json();
+    dispatch(actionUnsavePin(data.pin))
     return;
   }
 }
@@ -136,6 +148,14 @@ const pinsReducer = (state = initialState, action) => {
       let newState = { ...state, allPins: { ...state.allPins }, singlePin: { ...state.singlePin}}
       delete newState.allPins[action.pinId]
       return newState
+    case SAVE_PIN:
+      let newSavedPins = { ...state, savedPins: { ...state.savedPins }};
+      newSavedPins.savedPins[action.pin.id] = action.pin;
+      return newSavedPins;
+    case UNSAVE_PIN:
+      let unsavePin = { ...state, savedPins: { ...state.savedPins }};
+      delete unsavePin.savedPins[action.pin.id]
+      return unsavePin
     case SAVED_PINS:
       return { ...state, savedPins: { ...action.pins }}
     default: return { ...state }

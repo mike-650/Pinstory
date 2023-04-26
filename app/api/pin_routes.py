@@ -25,9 +25,12 @@ def single_pin(pin_id):
     Query for one pin and return it in a dictionary
     """
     pin = Pin.query.filter(Pin.id == pin_id).one()
+    pin_dict = pin.to_dict()
+    user_dict = pin.user.to_dict()
+    del user_dict['saved_pins']
+    pin_dict['user'] = user_dict
 
-    return {"pin": pin.to_dict()}
-
+    return {"pin": pin_dict}
 
 @pin_routes.route('/singlePin', methods=['POST'])
 @login_required
@@ -146,7 +149,7 @@ def save_pin(pin_id):
         user_id=current_user.id, pin_id=pin_id))
     db.session.commit()
 
-    return {'message': 'Pin added to Board successfully'}
+    return { 'pin': pin.to_dict() }, 201
 
 
 @pin_routes.route('/unsavePin/<int:pin_id>', methods=['DELETE'])
@@ -175,4 +178,4 @@ def unsave_pin(pin_id):
     db.session.execute(delete_stmt)
     db.session.commit()
 
-    return {'message': 'Pin removed from Board successfully'}
+    return { 'pin': pin.to_dict() }
