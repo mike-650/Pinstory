@@ -22,12 +22,10 @@ function BrowsePage() {
   const handleSave = (e, pinId) => {
     e.preventDefault();
     if (!savedPins.includes(pinId)) {
-      console.log('IM NOT SAVED')
       dispatch(thunkSavePin(pinId));
       return;
     }
     else {
-      console.log('I AM SAVED')
       dispatch(thunkUnsavePin(pinId));
       return;
   }
@@ -48,7 +46,7 @@ return (
                   </>
                   :
                   <>
-                    <div className="BR-profile-drop-down">Profile <i className="fa-solid fa-chevron-down fa-sm"></i></div>
+                    <div className="BR-profile-drop-down" onClick={(e) => {e.preventDefault(); alert('Under Construction')}}>Profile <i className="fa-solid fa-chevron-down fa-sm"></i></div>
                     <div className="BR-save-div" onClick={(e) => handleSave(e, pin.id)}>Save</div>
                   </>
                 }

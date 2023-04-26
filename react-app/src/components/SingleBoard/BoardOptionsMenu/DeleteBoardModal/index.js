@@ -1,4 +1,4 @@
-import { useParams, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useModal } from "../../../../context/Modal"
 import { thunkDeleteBoard } from '../../../../store/board'

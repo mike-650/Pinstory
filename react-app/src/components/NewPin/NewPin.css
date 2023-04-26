@@ -120,8 +120,8 @@
 }
 
 .NP-image-preview {
-  width: fill;
-  height: fill;
+  width: stretch;
+  height: stretch;
   z-index: 3;
   border-radius: 10px;
 }
@@ -143,8 +143,8 @@
   background-color: transparent;
   border: transparent;
   text-decoration: none;
-  width: fill;
-  /* height: 40px; */
+  width: stretch;
+
   font-size: 30px;
   font-weight: 600;
   padding-bottom: 7px;
@@ -185,7 +185,7 @@
   border: transparent;
   text-decoration: none;
   margin-top: 50px;
-  width: fill;
+  width: stretch;
   font-size: 14px;
   padding-bottom: 15px;
   padding-left: 15px;

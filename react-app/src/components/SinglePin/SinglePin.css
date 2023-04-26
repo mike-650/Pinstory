@@ -69,3 +69,16 @@
   color: white;
   user-select: none;
 }
+
+.SP-profile-pin-section {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+}
+
+#SP-profile-pin-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  margin-right: 10px;
+}

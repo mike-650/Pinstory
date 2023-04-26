@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback } from "react"
 import { useDropzone } from "react-dropzone"
 
 function Dropzone({ className, setImgFile, errors, uploadedFile, setUploadedFile }) {
@@ -14,7 +14,7 @@ function Dropzone({ className, setImgFile, errors, uploadedFile, setUploadedFile
         setImgFile(file)
       }
     }
-  }, [])
+  }, [setImgFile, setUploadedFile])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 

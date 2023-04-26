@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 function Created() {
   const userId = useSelector(state => state.session.singleUser.id);
-  const userPins = useSelector(state => Object.values(state.pins.allPins).filter(pin => pin.user_id == userId))
+  const userPins = useSelector(state => Object.values(state.pins.allPins).filter(pin => pin.user_id === userId))
 
   return (
     <div className='UP-pins-container'>

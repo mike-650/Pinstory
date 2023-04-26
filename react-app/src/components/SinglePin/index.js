@@ -16,7 +16,6 @@ function SinglePin() {
 
   const [pinMenu, setPinMenu] = useState(false);
   const [profileMenu, setProfileMenu] = useState(false);
-  console.log('SAVED PIN ?   :  ',!savedPins?.includes(parseInt(pinId)))
   const [toggleButton, setToggleButton] = useState(!savedPins?.includes(parseInt(pinId)));
 
   useEffect(() => {
@@ -56,9 +55,9 @@ function SinglePin() {
             {pinMenu ? <PinMenu /> : null}
             <div className='SP-top-right-section'>
               <div className='SP-profile-drop-menu-div' onClick={toggleProfileMenu}>Profile <i className="fa-solid fa-chevron-down fa-sm"></i></div>
-              { profileMenu && <ProfileMenu />}
-              <div className={ toggleButton ? 'NP-save-button SP-save-button' : 'SP-saved-button SP-save-button'}>
-                { toggleButton ? <button id='NP-save' onClick={handleSave}>Save</button> : <button id='NP-save' onClick={handleSave}>Saved</button>}
+              {profileMenu && <ProfileMenu />}
+              <div className={toggleButton ? 'NP-save-button SP-save-button' : 'SP-saved-button SP-save-button'}>
+                {toggleButton ? <button id='NP-save' onClick={handleSave}>Save</button> : <button id='NP-save' onClick={handleSave}>Saved</button>}
               </div>
             </div>
           </div>
@@ -68,6 +67,10 @@ function SinglePin() {
           </h2>
           <div>
             {pinDetails.description}
+          </div>
+          <div className='SP-profile-pin-section'>
+            <img id='SP-profile-pin-image'src={pinDetails.user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='profile'></img>
+            <p>{pinDetails.user?.firstName} {pinDetails.user?.lastName}</p>
           </div>
         </div>
 

@@ -1,16 +1,15 @@
-import { NavLink, useHistory, useParams } from 'react-router-dom'
-import './SingleBoard.css'
+import { NavLink, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { thunkSingleBoard } from '../../store/board';
 import { grabUser } from '../../store/session';
 import BoardOptionsModal from './BoardOptionsMenu';
 import RemovePinModal from './RemovePinModal';
+import './SingleBoard.css'
 
 function SingleBoard() {
   const { userName, boardId } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const [removePinMenu, setRemovePinMenu] = useState(false);
   const [showEllipsis, setShowEllipsis] = useState(false);
@@ -23,7 +22,7 @@ function SingleBoard() {
   useEffect(() => {
     dispatch(thunkSingleBoard(boardId))
     dispatch(grabUser(userName))
-  }, [dispatch])
+  }, [dispatch, boardId, userName])
 
   const editBoard = () => {
     if (!showMenu) setShowMenu(true);
@@ -49,7 +48,7 @@ function SingleBoard() {
         <h1>{board?.title}</h1>
       </div>
       <div className='SB-profile-picture-container'>
-        <img className="PP-profile-picture" src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile Picture'></img>
+        <img className="PP-profile-picture" src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile'></img>
       </div>
       <div className='SB-profile-user-name'>
         @{user?.username}
@@ -67,8 +66,8 @@ function SingleBoard() {
         {board.pins?.map(pin =>
           <div className='SP-board-container' key={pin.id}>
             <NavLink className='SB-board-images' to={`/pin/${pin.id}`} onMouseLeave={() => handleEllipsis(null)}>
-              {pin.id == ellipsisId && <i className="fa-solid fa-ellipsis fa-xl SB-ellipsis" onClick={(e) => togglePinMenu(e, pin.id)}></i>}
-              <img className='BR-pin-images' src={pin.imageUrl} onMouseEnter={() => handleEllipsis(pin.id)}></img>
+              {pin.id === ellipsisId && <i className="fa-solid fa-ellipsis fa-xl SB-ellipsis" onClick={(e) => togglePinMenu(e, pin.id)}></i>}
+              <img className='BR-pin-images' src={pin.imageUrl} alt='pin' onMouseEnter={() => handleEllipsis(pin.id)}></img>
             </NavLink>
             <h4>{pin.title}</h4>
           </div>

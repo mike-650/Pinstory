@@ -13,7 +13,7 @@ function Saved({ userBoards, userId, username }) {
   useEffect(() => {
     dispatch(thunkSavedPins());
     dispatch(thunkUserBoards(userId));
-  }, [dispatch])
+  }, [dispatch, userId])
 
 
   return (
@@ -24,9 +24,9 @@ function Saved({ userBoards, userId, username }) {
             <img className='SPB-images' src={pin.imageUrl} alt={pin.title} ></img>
           ) : <>
             {/* Default image place holders */}
-            <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'}></img>
-            <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'}></img>
-            <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'}></img>
+            <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='default'></img>
+            <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='default'></img>
+            <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='default'></img>
           </>
           }
         </NavLink>
@@ -42,9 +42,9 @@ function Saved({ userBoards, userId, username }) {
               <img className='SPB-images' src={pin.imageUrl} alt={pin.title} key={index} />
             )) : <>
               {/* Default image place holders */}
-              <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'}></img>
-              <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'}></img>
-              <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'}></img>
+              <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='default'></img>
+              <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='default'></img>
+              <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='default'></img>
             </>}
           </div>
           <div className="SPB-title-total-pin-header">
