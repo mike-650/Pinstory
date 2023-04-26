@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
 
     pins = db.relationship('Pin', back_populates='user')
     boards = db.relationship('Board', back_populates='user')
+    comments = db.relationship('Comment', back_populates='user')
 
     saved_pins = db.relationship('Pin', secondary='saved_pins', back_populates='saved_by_users')
 

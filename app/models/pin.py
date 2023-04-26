@@ -15,6 +15,7 @@ class Pin(db.Model):
     user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')))
 
     user = db.relationship('User', back_populates='pins')
+    comments = db.relationship('Comment', back_populates='pin')
 
     boards = db.relationship('Board', secondary='board_pins', back_populates='pins')
     saved_by_users = db.relationship('User', secondary='saved_pins', back_populates='saved_pins')
@@ -26,5 +27,5 @@ class Pin(db.Model):
             'imageUrl': self.image_url,
             'title': self.title,
             'description': self.description,
-            'user_id': self.user_id 
+            'user_id': self.user_id
         }

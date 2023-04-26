@@ -32,6 +32,7 @@ function BrowsePage() {
 }
 
 return (
+  <div className="BR-TESTING">
   <div className="BR-pins-container">
     {allPins.map((pin) =>
       <div className="BR-img-container" key={pin.id}>
@@ -58,6 +59,7 @@ return (
         </NavLink>
       </div>
     )}
+  </div>
   </div>
 )
 }

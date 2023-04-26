@@ -65,15 +65,17 @@ function SinglePin() {
           <h2>
             {pinDetails.title}
           </h2>
-          <div>
+          <div className='testinggg'>
             {pinDetails.description}
           </div>
           <div className='SP-profile-pin-section'>
             <img id='SP-profile-pin-image'src={pinDetails.user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='profile'></img>
             <p>{pinDetails.user?.firstName} {pinDetails.user?.lastName}</p>
           </div>
+        <div className='SP-comments'>
+        <div>6 Comments <i className="fa-solid fa-chevron-down fa-sm"></i></div>
         </div>
-
+        </div>
 
       </div>
     </div>
