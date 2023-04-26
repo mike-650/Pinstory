@@ -1,8 +1,8 @@
-import { useParams, useHistory } from 'react-router-dom'
-import './DeletePinModal.css'
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkDeletePin } from '../../../../store/pin';
 import { useModal } from "../../../../context/Modal"
+import './DeletePinModal.css';
 
 function DeletePinModal() {
   const dispatch = useDispatch();

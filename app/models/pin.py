@@ -26,5 +26,5 @@ class Pin(db.Model):
             'imageUrl': self.image_url,
             'title': self.title,
             'description': self.description,
-            'user_id': self.user_id
+            'user_id': self.user_id 
         }

@@ -20,7 +20,7 @@ function SavedPins() {
       </div>
       <div className="SavedPins-container">
         {pins.map(pin =>
-          <div className="SavedPin-div">
+          <div className="SavedPin-div" key={pin.id}>
             <div className='SavedPin-content'>
               <NavLink to={`/pin/${pin.id}`}>
               <img className='SavedPin-image' src={pin.imageUrl} alt={pin.title}></img>

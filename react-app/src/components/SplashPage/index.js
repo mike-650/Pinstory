@@ -8,7 +8,7 @@ import './SplashPage.css';
 function SplashPage() {
 	const sessionUser = useSelector(state => state.session.user);
 
-	const mainText = ['weeknight dinner idea', 'home decor idea', 'green thumb idea', 'new look outfit']
+	// const mainText = ['weeknight dinner idea', 'home decor idea', 'green thumb idea', 'new look outfit']
 
 	return (
 		<>

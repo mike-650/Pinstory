@@ -52,13 +52,9 @@
 }
 
 
-
-
-
 .SP-board-container {
   position: relative;
 }
-
 
 
 .SB-ellipsis {
@@ -77,15 +73,6 @@
   opacity: 1;
 }
 
-
-.SB-board-images {
-  /* position: relative; */
-}
-
 .SB-board-images:hover {
   opacity: .8;
 }
-
-/* .SP-board-container {
-
-} */

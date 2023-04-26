@@ -1,9 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import OpenModalButton from '../../OpenModalButton';
 import DeleteBoardModal from './DeleteBoardModal'
-import './BoardOptions.css'
 import EditBoardModal from './EditBoardModal';
-import { useParams } from 'react-router-dom';
+import './BoardOptions.css';
 
 function BoardOptionsMenu() {
   const dropdownRef = useRef(null);

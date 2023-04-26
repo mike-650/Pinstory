@@ -35,7 +35,7 @@ function ProfileMenu() {
       <div className='PM-menu-container'>
         <p style={{ fontSize: '12px' }}>Currently In</p>
         <NavLink to={`/profile/${user?.username}`} className='PM-profile-section'>
-          <img src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile Picture' className='PM-profile-picture-in-menu'></img>
+          <img src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='profile' className='PM-profile-picture-in-menu'></img>
           <div className='PM-profile-info'>
             <div style={{fontSize:'14px', fontWeight:'bold'}}>{user?.firstName} {user?.lastName}</div>
             <div className='PM-username-check'>

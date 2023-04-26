@@ -1,4 +1,4 @@
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 import CreatePinMenu from './CreatePinMenu';
@@ -36,10 +36,10 @@ function Navigation() {
       </div>
       <form className='NV-search-bar-container' onSubmit={() => alert('Feature Coming Soon!')}>
         <i className="fa-solid fa-magnifying-glass fa-sm" id='NV-search-icon'></i>
-        <input type='search' placeholder='Search' id='NV-search-bar' />
+        <input type='search' placeholder='Feature Coming Soon!' id='NV-search-bar' />
       </form>
       <div className='NV-profile-section'>
-        <img onClick={openProfileMenu} src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile Picture' className='PM-profile-picture'></img>
+        <img onClick={openProfileMenu} src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile' className='PM-profile-picture'></img>
         { profileMenu ? <ProfileMenu /> : null}
       </div>
     </div>

@@ -96,7 +96,8 @@ function NewPin() {
               setImgFile={setImgFile}
               errors={errors}
               uploadedFile={uploadedFile}
-              setUploadedFile={setUploadedFile} />
+              setUploadedFile={setUploadedFile}
+            />
           </div>
           <div className='NP-create-pin-right-side'>
             {errors.imgFile && <span className="NP-errors">{errors.imgFile}</span>}
@@ -112,7 +113,7 @@ function NewPin() {
             </input>
             <div className='NP-profile-preview'>
               <div className='NP-profile-pic-container'>
-                <img src={user.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile Picture' className='NP-profile-picture'></img>
+                <img src={user.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile' className='NP-profile-picture'></img>
               </div>
               <div className='NP-first-last-container'>
                 <p style={{ marginRight: '5px' }}>{user.firstName}</p>

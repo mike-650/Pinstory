@@ -24,17 +24,20 @@ function ProfilePage() {
   const userBoards = useSelector(state => Object.values(state.boards.userBoards));
   const userId = useSelector(state => state.session.singleUser?.id);
 
-  useEffect(async () => {
+  useEffect(() => {
     dispatch(thunkAllPins())
 
-    const res = await dispatch(grabUser(userName))
-    if (res.errors) {
-      return history.push('/not-found')
-    } else {
-      dispatch(thunkUserBoards(userId))
+    async function fetchData() {
+      const res = await dispatch(grabUser(userName))
+      if (res.errors) {
+        return history.push('/not-found')
+      } else {
+        dispatch(thunkUserBoards(userId))
+      }
     }
+    fetchData();
 
-  }, [dispatch, userId])
+  }, [dispatch, userId, userName, history])
 
   const switchPage = () => {
     if (savedPage) {
@@ -58,11 +61,11 @@ function ProfilePage() {
   return (
     <div>
       <div className="PP-Top-Section">
-        <img className='PP-profile-picture' src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile Picture' />
+        <img className='PP-profile-picture' src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile' />
         <h1>{user?.firstName} {user?.lastName}</h1>
         <p>@{user?.username}</p>
         {/* Conditionally render Edit Profile button if logged user is on their own prof page */}
-        {currUser?.id == user?.id && <button onClick={() => alert('Under Construction!')}>Edit Profile</button>}
+        {currUser?.id === user?.id && <button onClick={() => alert('Under Construction!')}>Edit Profile</button>}
         <div className='PP-created-saved'>
           <h4 className={createClass} onClick={switchPage}>Created</h4>
           <h4 className={savedClass} onClick={switchPage}>Saved</h4>

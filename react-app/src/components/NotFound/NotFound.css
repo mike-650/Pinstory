@@ -16,8 +16,7 @@
 
 .Not-found-image {
   height: 200px;
-  width: fill;
-  background-image: url();
+  width: stretch;
 }
 
 .Not-found-link:visited {
