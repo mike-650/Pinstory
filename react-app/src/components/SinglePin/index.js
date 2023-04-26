@@ -16,6 +16,7 @@ function SinglePin() {
 
   const [pinMenu, setPinMenu] = useState(false);
   const [profileMenu, setProfileMenu] = useState(false);
+  console.log('SAVED PIN ?   :  ',!savedPins?.includes(parseInt(pinId)))
   const [toggleButton, setToggleButton] = useState(!savedPins?.includes(parseInt(pinId)));
 
   useEffect(() => {

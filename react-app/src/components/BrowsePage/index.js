@@ -22,10 +22,12 @@ function BrowsePage() {
   const handleSave = (e, pinId) => {
     e.preventDefault();
     if (!savedPins.includes(pinId)) {
+      console.log('IM NOT SAVED')
       dispatch(thunkSavePin(pinId));
       return;
     }
     else {
+      console.log('I AM SAVED')
       dispatch(thunkUnsavePin(pinId));
       return;
   }
@@ -34,7 +36,7 @@ function BrowsePage() {
 return (
   <div className="BR-pins-container">
     {allPins.map((pin) =>
-      <div className="BR-img-container">
+      <div className="BR-img-container" key={pin.id}>
         <NavLink to={`/pin/${pin.id}`} id="BR-NavLink" key={pin.id}>
           <div className="BR-img-overlay">
             <div className="BR-overlay-content">

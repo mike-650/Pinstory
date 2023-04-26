@@ -141,8 +141,7 @@ def save_pin(pin_id):
     if not pin:
         return {'error': 'Pin not found'}, 404
 
-    user.pins.append(pin)
-    db.session.commit()
+    # user.pins.append(pin)
 
     # Add entry to board_pins table
     db.session.execute(saved_pins.insert().values(
@@ -167,11 +166,10 @@ def unsave_pin(pin_id):
     if not pin:
         return {'error': 'Pin not found'}, 404
 
-    if pin not in user.pins:
-        return {'error': 'Pin not saved for this user'}, 400
+    # if pin not in user.pins:
+    #     return {'error': 'Pin not saved for this user'}, 400
 
-    user.pins.remove(pin)
-    db.session.commit()
+    # user.pins.remove(pin)
 
     # Remove entry from board_pins table
     delete_stmt = saved_pins.delete().where((saved_pins.c.user_id == current_user.id) & (saved_pins.c.pin_id == pin_id))

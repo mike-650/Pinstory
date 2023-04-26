@@ -60,9 +60,10 @@ export const thunkAllPins = () => async dispatch => {
 
 export const thunkSinglePin = (pinId) => async dispatch => {
   const response = await fetch(`/api/pins/singlePin/${pinId}`)
-
+  console.log('RESPONSE', response)
   if (response.ok) {
     const data = await response.json()
+    console.log('DATA    :  ', data)
     dispatch(actionSinglePin(data.pin))
     return;
   }
