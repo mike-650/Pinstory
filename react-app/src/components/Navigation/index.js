@@ -37,7 +37,7 @@ function Navigation() {
       <div className='NV-left-section'>
         <NavLink to={'/browse'} className='NV-home-link'>
           <img src={logo} alt='Pinstory Logo' className='NV-pinstory-logo' />
-          <span >Home</span>
+          <span className='NV-Home-button'>Home</span>
         </NavLink>
         <div className='NV-create-pin-container'>
           <p className='NV-createpin-icon'>
@@ -51,8 +51,8 @@ function Navigation() {
         <input type='search' placeholder='Feature Coming Soon!' id='NV-search-bar' />
       </form>
       <div className='NV-profile-section'>
-        <i class="fa-brands fa-github fa-xl mike-socials" onClick={(e) => GithubLink(e)}></i>
-        <i class="fa-brands fa-linkedin fa-xl mike-socials" onClick={(e) => LinkedInLink(e)}></i>
+        <i className="fa-brands fa-github fa-xl mike-socials" onClick={(e) => GithubLink(e)}></i>
+        <i className="fa-brands fa-linkedin fa-xl mike-socials" onClick={(e) => LinkedInLink(e)}></i>
         <img onClick={openProfileMenu} src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile' className='PM-profile-picture'></img>
         {profileMenu ? <ProfileMenu /> : null}
       </div>

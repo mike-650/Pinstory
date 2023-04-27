@@ -37,8 +37,8 @@ function ProfileButton() {
 
   return (
     <div className="PB-login-signup-container">
-      <i class="fa-brands fa-github fa-2xl mike-socials" onClick={(e) => GithubLink(e)}></i>
-      <i class="fa-brands fa-linkedin fa-2xl mike-socials" onClick={(e) => LinkedInLink(e)}></i>
+      <i className="fa-brands fa-github fa-2xl mike-socials" onClick={(e) => GithubLink(e)}></i>
+      <i className="fa-brands fa-linkedin fa-2xl mike-socials" onClick={(e) => LinkedInLink(e)}></i>
       <OpenModalButton
         buttonText="Log in"
         onItemClick={closeMenu}
