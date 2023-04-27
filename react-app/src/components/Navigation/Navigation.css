@@ -5,9 +5,7 @@
   top: .01px;
   z-index: 999;
   background-color: white;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  opacity: .96;
+  opacity: .97;
 }
 
 .NV-pinstory-logo {
@@ -33,7 +31,9 @@
 }
 
 .NV-left-section p {
-  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }
 
 .NV-home-link {
@@ -52,14 +52,14 @@
   font-weight: bold;
 }
 
-.NV-createpin-icon:hover {
-  cursor: pointer;
-}
-
 .NV-search-bar-container {
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 75%;
+}
+
+.NV-create-link:hover {
+  cursor: pointer;
 }
 
 #NV-search-icon {
@@ -71,7 +71,8 @@
 #NV-search-bar {
   width: 100%;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 30px;
+  padding: 25px;
   padding-left: 40px;
   border: 1px solid transparent;
   background-color: rgb(233, 233, 233)
@@ -83,7 +84,8 @@
 
 .NV-profile-section {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 10%;
   align-items: center;
 }
 
@@ -91,9 +93,15 @@
   width: 35px;
   height: 35px;
   border-radius: 30px;
-  margin-left: 10px;
 }
 
 .PM-profile-picture:hover {
   box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.5);
+}
+
+
+.mike-socials:hover {
+  cursor: pointer;
+  transform: rotate(360deg);
+  transition: transform 0.5s ease-in-out;
 }

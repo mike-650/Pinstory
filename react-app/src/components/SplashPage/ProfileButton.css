@@ -1,5 +1,14 @@
 .PB-login-signup-container {
-  width: 9%;
+  width: 20%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.PB-login-signup-container > button {
+  padding: 10px;
+}
+
+.PB-login-signup-container > i {
+  margin-right: 10px;
 }

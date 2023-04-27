@@ -6,14 +6,8 @@ import SignupFormModal from "../SignupFormModal";
 import './ProfileButton.css'
 
 function ProfileButton() {
-  // const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
-
-  // const openMenu = () => {
-  //   if (showMenu) return;
-  //   setShowMenu(true);
-  // };
 
   useEffect(() => {
     if (!showMenu) return;
@@ -29,16 +23,22 @@ function ProfileButton() {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  // const handleLogout = (e) => {
-  //   e.preventDefault();
-  //   dispatch(logout());
-  // };
-
-  // const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
+
+  const LinkedInLink = (e) => {
+    e.preventDefault();
+    window.open('https://www.linkedin.com/in/michael-s-688653118/', '_blank');
+  };
+
+  const GithubLink = (e) => {
+    e.preventDefault();
+    window.open('https://github.com/mike-650', '_blank');
+  };
 
   return (
     <div className="PB-login-signup-container">
+      <i class="fa-brands fa-github fa-2xl mike-socials" onClick={(e) => GithubLink(e)}></i>
+      <i class="fa-brands fa-linkedin fa-2xl mike-socials" onClick={(e) => LinkedInLink(e)}></i>
       <OpenModalButton
         buttonText="Log in"
         onItemClick={closeMenu}

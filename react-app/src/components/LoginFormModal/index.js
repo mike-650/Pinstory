@@ -31,9 +31,9 @@ function LoginFormModal() {
 
   const handleDemo = async (e) => {
     e.preventDefault();
-    await dispatch(login('demo@aa.io', 'password'))
+    await dispatch(login('mike@sf.io', 'password'))
 
-    setEmail('demo@aa.io');
+    setEmail('mike@sf.io');
     setPassword('password');
 
       setTimeout(() => {
