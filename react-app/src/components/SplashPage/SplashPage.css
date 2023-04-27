@@ -13,8 +13,13 @@
   color: rgb(0, 4, 81);
   font-weight: bold;
   margin-top: 4px;
-  margin-left: 10px;
+  margin-left: 12px;
   font-size: 18px;
+}
+
+.NV-home-link > p {
+  font-size: 20px;
+  color: rgb(133, 144, 194);
 }
 
 #home-icon {
@@ -56,4 +61,21 @@
 .SP-main-text > h1 {
   margin-bottom: 2px;
   margin-top: 10px;
+}
+
+.fade-out-up {
+  animation: fadeOutUp 4s forwards;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }
