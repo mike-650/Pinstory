@@ -1,27 +1,18 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom";
-import { thunkUserBoards } from "../../../store/board";
 import './SavedPins.css'
-import { thunkSavedPins } from "../../../store/pin";
+
 
 function Saved({ userBoards, userId, username }) {
   const history = useHistory();
-  const dispatch = useDispatch();
   const savedPins = useSelector(state => Object.values(state.pins.savedPins))
-
-  useEffect(() => {
-    dispatch(thunkSavedPins());
-    dispatch(thunkUserBoards(userId));
-  }, [dispatch, userId])
-
 
   return (
     <div className="SPB-boards-pins-container">
       <div>
         <NavLink to={`/profile/${username}/saved-pins`} className='SPB-grid-preview'>
           {savedPins.length ? savedPins.slice(0, 3)?.map(pin =>
-            <img className='SPB-images' src={pin.imageUrl} alt={pin.title} ></img>
+            <img className='SPB-images' src={pin.imageUrl} alt={pin.title} key={pin.id}></img>
           ) : <>
             {/* Default image place holders */}
             <img className='SPB-images' src={'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='default'></img>
@@ -54,7 +45,6 @@ function Saved({ userBoards, userId, username }) {
         </div>
       )}
     </div>
-
   )
 }
 

@@ -47,6 +47,7 @@ function NewPin() {
       ".raw", ".webp"]
 
     if (title.length >= 30) err.title = 'Pin Title must be less than 30 characters';
+    if (description.length >= 120) err.description = 'Description must be less than 120 characters';
 
     if (!imgFile) {
       err.imgFile = 'Please provide an image file'
@@ -71,7 +72,8 @@ function NewPin() {
     if (res.ok) {
       return history.push('/browse');
     } else {
-      return history.push('/')
+      err.aws = 'There was a problem uploading your pin, please try again later.'
+      return setErrors(err)
     }
   }
 
@@ -100,8 +102,9 @@ function NewPin() {
             />
           </div>
           <div className='NP-create-pin-right-side'>
-            {errors.imgFile && <span className="NP-errors">{errors.imgFile}</span>}
-            {errors.title ? <p className='NP-errors'>{errors.title}</p> : null}
+            {errors.imgFile && <span className="NP-errors">* {errors.imgFile}</span>}
+            {errors.title ? <p className='NP-errors'>*  {errors.title}</p> : null}
+            {errors.aws ? <p className='NP-errors'>*  {errors.aws}</p> : null}
             <input
               type='text'
               placeholder='Add your title'
@@ -120,6 +123,7 @@ function NewPin() {
                 <p>{user.lastName}</p>
               </div>
             </div>
+            {errors.description ? <p className='NP-errors' style={{marginTop:'30px'}}>* {errors.description}</p> : null}
             <textarea
               type='text'
               placeholder='Tell everyone what your Pin is about'

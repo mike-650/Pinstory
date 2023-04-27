@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { grabUser } from '../../store/session'
 import { useState } from 'react'
-import { thunkAllPins } from '../../store/pin'
+import { thunkSavedPins } from '../../store/pin'
 import { thunkUserBoards } from '../../store/board'
 import BoardMenu from './BoardMenu'
 import Created from './Created'
@@ -25,18 +25,16 @@ function ProfilePage() {
   const userId = useSelector(state => state.session.singleUser?.id);
 
   useEffect(() => {
-    dispatch(thunkAllPins())
-
+    dispatch(thunkSavedPins());
     async function fetchData() {
       const res = await dispatch(grabUser(userName))
       if (res.errors) {
         return history.push('/not-found')
       } else {
-        dispatch(thunkUserBoards(userId))
+        dispatch(thunkUserBoards(res.id))
       }
     }
     fetchData();
-
   }, [dispatch, userId, userName, history])
 
   const switchPage = () => {
@@ -58,6 +56,12 @@ function ProfilePage() {
     else setBoardMenu(false)
   }
 
+  if ( !user || !userId) {
+    return (
+      <h1>Loading..</h1>
+    )
+  }
+
   return (
     <div>
       <div className="PP-Top-Section">
@@ -74,7 +78,7 @@ function ProfilePage() {
           <div className='PP-filter-add-container'>
             <span className="material-symbols-outlined PP-icons" onClick={() => alert('Feature coming soon!')}>tune</span>
             <span className="material-symbols-outlined PP-icons" onClick={toggleBoardMenu}>add</span>
-            { boardMenu && <BoardMenu /> }
+            {boardMenu && <BoardMenu />}
           </div>
         }
         {createdPage && <Created />}
