@@ -1,24 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom"
-import { thunkAllPins, thunkSavedPins } from "../../store/pin";
-import ProfileMenu from "../SinglePin/ProfileMenu";
+import { thunkAllPins, thunkSavedPins, thunkSavePin, thunkUnsavePin } from "../../store/pin";
+import { thunkUserBoards } from "../../store/board";
+import QuickProf from "./QuickProf";
 
 import './BrowsePage.css'
-import { useEffect } from "react";
-import { thunkSavePin } from "../../store/pin";
-import { thunkUnsavePin } from "../../store/pin";
 
 
 function BrowsePage() {
   const dispatch = useDispatch();
   const [profileMenu, setProfileMenu] = useState(false);
+  const [currId, setCurrId] = useState(null);
   const allPins = Object.values(useSelector(state => state.pins.allPins))
   const savedPins = Object.values(useSelector(state => state.pins.savedPins)).map(pin => pin.id)
+  const userId = useSelector(state => state.session.user.id)
 
   useEffect(() => {
     dispatch(thunkAllPins());
-    dispatch(thunkSavedPins());;
+    dispatch(thunkSavedPins());
+    dispatch(thunkUserBoards(userId))
   }, [dispatch])
 
   const handleSave = (e, pinId) => {
@@ -33,18 +34,20 @@ function BrowsePage() {
     }
   }
 
-  const toggleProfileMenu = (e) => {
+  const openProf = (e, id) => {
     e.preventDefault();
-    if (!profileMenu) return setProfileMenu(true);
-    else return setProfileMenu(false);
+    setCurrId(id)
+    if (profileMenu) return setProfileMenu(false)
+    setProfileMenu(true);
   }
+
 
 
   return (
     <div className="BR-TESTING">
       <div className="BR-pins-container">
         {allPins.map((pin) =>
-          <div className="BR-img-container" key={pin.id}>
+          <div className="BR-img-container" key={pin.id} onMouseLeave={() => setProfileMenu(false)}>
             <NavLink to={`/pin/${pin.id}`} id="BR-NavLink" key={pin.id}>
               <div className="BR-img-overlay">
                 <div className="BR-overlay-content">
@@ -56,8 +59,8 @@ function BrowsePage() {
                       </>
                       :
                       <>
-                        <div className="BR-profile-drop-down" onClick={(e) => toggleProfileMenu(e)}>Profile <i className="fa-solid fa-chevron-down fa-sm"></i></div>
-                        {profileMenu && <ProfileMenu />}
+                        <div className="BR-profile-drop-down" onClick={(e) => openProf(e, pin.id)}>Profile <i className="fa-solid fa-chevron-down fa-sm"></i></div>
+                        {profileMenu && pin.id === currId && <QuickProf />}
                         <div className="BR-save-div" onClick={(e) => handleSave(e, pin.id)}>Save</div>
                       </>
                     }

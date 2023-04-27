@@ -40,9 +40,9 @@ function Navigation() {
           <span className='NV-Home-button'>Home</span>
         </NavLink>
         <div className='NV-create-pin-container'>
-          <p className='NV-createpin-icon'>
+          <div className='NV-createpin-icon'>
             <p className='NV-create-link' style={{marginRight:'5px'}} onClick={openCreateMenu}>Create</p> <i onClick={openCreateMenu} className="fa-solid fa-chevron-down NV-create-link"></i>
-          </p>
+          </div>
           {createMenu && <CreatePinMenu />}
         </div>
       </div>

@@ -66,49 +66,49 @@ function SplashPage() {
 								src={urls[0]}
 								alt={`test-${i}`}
 								id='img1'
-								className={i === currentText ? "fade-out-up" : "hidden"}
+								className={i === currentText ? "fade-out-images" : "hidden"}
 							/>
 							<img
 								key={i}
 								src={urls[1]}
 								alt={`test-${i}`}
 								id='img2'
-								className={i === currentText ? "fade-out-up" : "hidden"}
+								className={i === currentText ? "fade-out-images" : "hidden"}
 							/>
 							<img
 								key={i}
 								src={urls[2]}
 								alt={`test-${i}`}
 								id='img3'
-								className={i === currentText ? "fade-out-up" : "hidden"}
+								className={i === currentText ? "fade-out-images" : "hidden"}
 							/>
 							<img
 								key={i}
 								src={urls[3]}
 								alt={`test-${i}`}
 								id='img4'
-								className={i === currentText ? "fade-out-up" : "hidden"}
+								className={i === currentText ? "fade-out-images" : "hidden"}
 							/>
 							<img
 								key={i}
 								src={urls[4]}
 								alt={`test-${i}`}
 								id='img5'
-								className={i === currentText ? "fade-out-up" : "hidden"}
+								className={i === currentText ? "fade-out-images" : "hidden"}
 							/>
 							<img
 								key={i}
 								src={urls[5]}
 								alt={`test-${i}`}
 								id='img6'
-								className={i === currentText ? "fade-out-up" : "hidden"}
+								className={i === currentText ? "fade-out-images" : "hidden"}
 							/>
 							<img
 								key={i}
 								src={urls[6]}
 								alt={`test-${i}`}
 								id='img7'
-								className={i === currentText ? "fade-out-up" : "hidden"}
+								className={i === currentText ? "fade-out-images" : "hidden"}
 							/>
 						</>
 					))}

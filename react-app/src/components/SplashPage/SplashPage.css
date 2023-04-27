@@ -77,9 +77,28 @@
 
   to {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(-50%);
   }
 }
+
+.fade-out-images {
+  animation: fadeOutImages 3s forwards;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+}
+
+@keyframes fadeOutImages {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}
+
 
 .SP-images {
   margin-top: 30%;
@@ -98,17 +117,17 @@
 
 #img1 {
   position: relative;
-  bottom: 150px;
+  bottom: 160px;
 }
 
 #img2 {
   position: relative;
-  bottom: 90px;
+  bottom: 120px;
 }
 
 #img3 {
   position: relative;
-  bottom: 10px;
+  bottom: 20px;
 }
 
 #img4 {
@@ -118,15 +137,15 @@
 
 #img5 {
   position: relative;
-  bottom: 10px;
+  bottom: 20px;
 }
 
 #img6 {
   position: relative;
-  bottom: 90px;
+  bottom: 120px;
 }
 
 #img7 {
   position: relative;
-  bottom: 150px;
+  bottom: 160px;
 }
