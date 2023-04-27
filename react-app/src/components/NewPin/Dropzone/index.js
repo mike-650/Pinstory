@@ -19,27 +19,11 @@ function Dropzone({ className, setImgFile, errors, uploadedFile, setUploadedFile
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
-    <>
-      {/* {errors.imgFile && <span className="NP-errors">{errors.imgFile}</span>} */}
+    <div className="testinglol">
       <div {...getRootProps({
         className: className
       }
       )}>
-
-        {/* <input {...getInputProps()} />
-        {
-          isDragActive ?
-            <div className="DZ-inner-text">
-              <i class="fa-solid fa-circle-arrow-up fa-rotate-180 fa-xl"></i>
-              <p>Drop the file here!</p>
-            </div>
-            :
-            <div className="DZ-inner-text">
-              <i class="fa-solid fa-circle-arrow-up fa-xl"></i>
-              <p>Drag and drop or click to upload</p>
-            </div>
-        } */}
-
         {uploadedFile ? (
           // The file has been uploaded, so render only the input
           <input {...getInputProps()} />
@@ -53,20 +37,22 @@ function Dropzone({ className, setImgFile, errors, uploadedFile, setUploadedFile
                 <p>Drop the file here!</p>
               </div>
             ) : (
-              <div className="DZ-inner-text">
-                <i className="fa-solid fa-circle-arrow-up fa-xl"></i>
-                <p>Drag and drop or click to upload</p>
+              <>
+                <div className="DZ-inner-text">
+                  <i className="fa-solid fa-circle-arrow-up fa-xl"></i>
+                  <p>Drag and drop or click to upload</p>
+                </div>
+                </>
+              )}
               </div>
-            )}
-          </div>
-        )}
+          )}
 
-        {uploadedFile &&
-          <img src={uploadedFile[0].preview} alt='preview' className="NP-image-preview" />
-        }
-      </div>
-    </>
-  )
+            {uploadedFile &&
+              <img src={uploadedFile[0].preview} alt='preview' className="NP-image-preview" />
+            }
+          </div>
+    </div>
+      )
 }
 
-export default Dropzone
+      export default Dropzone
