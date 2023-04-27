@@ -72,7 +72,8 @@ function NewPin() {
     if (res.ok) {
       return history.push('/browse');
     } else {
-      return history.push('/')
+      err.aws = 'There was a problem uploading your pin, please try again later.'
+      return setErrors(err)
     }
   }
 
@@ -103,6 +104,7 @@ function NewPin() {
           <div className='NP-create-pin-right-side'>
             {errors.imgFile && <span className="NP-errors">* {errors.imgFile}</span>}
             {errors.title ? <p className='NP-errors'>*  {errors.title}</p> : null}
+            {errors.aws ? <p className='NP-errors'>*  {errors.aws}</p> : null}
             <input
               type='text'
               placeholder='Add your title'
