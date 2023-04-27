@@ -40,7 +40,7 @@ function ProfileMenu() {
     else return setSaveBtn(true);
   }
 
-  const saveToBoard = (boardId) => {
+  const saveToBoard = (e, boardId) => {
     dispatch(thunkAddPinToBoard(boardId, pinId))
     return setMenu('hidden');
   }

@@ -27,7 +27,7 @@ function SignupFormModal() {
 		if (lastName.length > 20 || lastName.length < 2) err.lastName = 'Last name must be between 2 and 20 characters';
 		if (username.length < 5 || username.length > 20) err.username = 'Username must be between 5 and 20 characters.';
 		if (password.length < 6) err.password = 'Password must be at least 6 characters.';
-		if (Object.values(err) > 0) return setErrors(err);
+		if (Object.values(err).length) return setErrors(err);
 
 		if (password === confirmPassword) {
 			const data = await dispatch(signUp(username, email, password, firstName, lastName));
