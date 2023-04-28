@@ -60,10 +60,9 @@ export const thunkAllPins = () => async dispatch => {
 
 export const thunkSinglePin = (pinId) => async dispatch => {
   const response = await fetch(`/api/pins/singlePin/${pinId}`)
-  console.log('RESPONSE', response)
+
   if (response.ok) {
     const data = await response.json()
-    console.log('DATA    :  ', data)
     dispatch(actionSinglePin(data.pin))
     return;
   }
@@ -100,7 +99,7 @@ export const thunkSavedPins = () => async dispatch => {
     const data = await response.json();
     const normalized = normalizePins(data.saved_pins)
     dispatch(actionSavedPins(normalized));
-    return;
+    return data.saved_pins.map(pin => pin.id)
   }
 }
 

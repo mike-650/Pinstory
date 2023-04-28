@@ -16,11 +16,16 @@ function SinglePin() {
 
   const [pinMenu, setPinMenu] = useState(false);
   const [profileMenu, setProfileMenu] = useState(false);
-  const [toggleButton, setToggleButton] = useState(!savedPins?.includes(parseInt(pinId)));
+  const [toggleButton, setToggleButton] = useState(null);
 
   useEffect(() => {
     dispatch(thunkSinglePin(pinId))
-    dispatch(thunkSavedPins())
+    const savedPins = async () => {
+      const data = await dispatch(thunkSavedPins());
+      setToggleButton(!data?.includes(parseInt(pinId)))
+      return;
+    }
+    savedPins();
   }, [dispatch, pinId])
 
   const toggleMenu = () => {
