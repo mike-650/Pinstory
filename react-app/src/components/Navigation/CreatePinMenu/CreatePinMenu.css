@@ -1,23 +1,26 @@
 .CP-menu-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   text-align: left;
   background-color: white;
   border-radius: 10px;
   position: absolute;
   margin-top: 10px;
   left: 6.5%;
-  height: 60%;
+  height: 100%;
   width: 10%;
   box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .CP-create-link {
   text-decoration: none;
-  padding-left: 10px;
+  padding: 5px;
   color: black;
-  width: 100%;
+  width: 70%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .CP-create-link:hover {

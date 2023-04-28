@@ -24,6 +24,7 @@ function CreatePinMenu() {
   return (
     <div className={menu} ref={dropdownRef}>
       <NavLink to='/new-pin' className='CP-create-link' onClick={() => setMenu('hidden')}>Create Pin</NavLink>
+      <NavLink to='/new-pin' className='CP-create-link' onClick={() => setMenu('hidden')}>Create Board</NavLink>
     </div>
   )
 

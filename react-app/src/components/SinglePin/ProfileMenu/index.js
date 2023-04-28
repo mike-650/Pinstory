@@ -41,6 +41,7 @@ function ProfileMenu() {
   }
 
   const saveToBoard = (e, boardId) => {
+    e.preventDefault();
     dispatch(thunkAddPinToBoard(boardId, pinId))
     return setMenu('hidden');
   }
@@ -54,15 +55,14 @@ function ProfileMenu() {
         <p>All Boards</p>
         <ul>
           {boards.map(board =>
-          <div className='ProfMenu-board-container'>
+          <div className='ProfMenu-board-container' key={board.id}>
             <li
             onMouseEnter={() => toggleSave(board.id)}
             onMouseLeave={() => setSaveBtn(false)}
-            key={board.id}
             >
               <img src={board.pins[0]?.imageUrl ? board.pins[0].imageUrl : 'https://diabetescoalitionpbc.org/wp-content/uploads/2017/05/grey-box.png'} alt='Board'></img>
               <p style={{marginLeft:'6px'}}>{board.title.length > 14 ? board.title.substr(0, 14 - 1) + "…" : board.title}</p>
-              { saveBtn && (saveId === board.id) && <div className='ProfMenu-save-button' onClick={() =>saveToBoard(board.id)}>Save</div>}
+              { saveBtn && (saveId === board.id) && <div className='ProfMenu-save-button' onClick={(e) =>saveToBoard(e, board.id)}>Save</div>}
             </li>
           </div>
             )}
