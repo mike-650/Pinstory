@@ -1,3 +1,4 @@
+
 .NV-navbar-container {
   display: flex;
   justify-content: space-between;
@@ -63,10 +64,11 @@
   margin-top: 10px;
 }
 
+
 .fade-out-up {
   animation: fadeOutUp 3s forwards;
-  animation-iteration-count: infinite;
-  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 3s;
 }
 
 @keyframes fadeOutUp {
@@ -83,8 +85,8 @@
 
 .fade-out-images {
   animation: fadeOutImages 3s forwards;
-  animation-iteration-count: infinite;
-  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 3s;
 }
 
 @keyframes fadeOutImages {
@@ -98,7 +100,6 @@
     transform: translateY(-50%);
   }
 }
-
 
 .SP-images {
   margin-top: 30%;
@@ -120,7 +121,7 @@
 
 #img2 {
   position: relative;
-  bottom: 120px;
+  bottom: 100px;
 }
 
 #img3 {
@@ -140,7 +141,7 @@
 
 #img6 {
   position: relative;
-  bottom: 120px;
+  bottom: 100px;
 }
 
 #img7 {

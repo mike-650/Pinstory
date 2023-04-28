@@ -42,7 +42,7 @@ function ProfileMenu() {
 
   const saveToBoard = (e, boardId) => {
     e.preventDefault();
-    dispatch(thunkAddPinToBoard(boardId, pinId))
+    dispatch(thunkAddPinToBoard(boardId, pinId, userId))
     return setMenu('hidden');
   }
 

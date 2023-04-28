@@ -126,9 +126,6 @@ def add_to_board(boardId, pinId):
     if not pin:
         return {'error': 'Pin not found'}, 404
 
-    board.pins.append(pin)
-    db.session.commit()
-
     # Add entry to board_pins table
     db.session.execute(board_pins.insert().values(
         board_id=boardId, pin_id=pinId))
