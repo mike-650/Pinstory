@@ -32,7 +32,7 @@ Pinstory is a Pinterest clone project that aims to provide users with a platform
 
 **Splash Page:**
 
-![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGI5NzA2MDY1MTEyOWU3MjE5OWM0ZjZmMWI0NTU1OTRlNmFkMjdjOCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/FJSAQyD7e5UTXqtIqS/giphy.gif)
+![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzMyN2Q4OTUwNjE3ZWE2ZDc5OWQwYzg4Mjc3MjJhOTRiODIzNTQ5MCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/xglbldGZDPEnmwsAz2/giphy.gif)
 
 **Browse Page:**
 
