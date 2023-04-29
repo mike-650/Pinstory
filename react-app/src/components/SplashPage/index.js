@@ -27,7 +27,7 @@ function SplashPage() {
 			// * currentText back to 0
 			setCurrentText(currentText => (currentText + 1) % mainText.length);
 			setRandomColor({ color: `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})` });
-		}, 5000);
+		}, 6000);
 
 		return () => clearInterval(intervalId);
 	}, [mainText.length]);

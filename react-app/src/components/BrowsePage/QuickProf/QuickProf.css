@@ -62,13 +62,37 @@
 .QP-board {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   overflow: scroll;
+  margin-right: 5px;
 }
 
 .QP-board > p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 12px;
+  /* margin-left: 12px; */
   font-size: 16px;
+}
+
+
+.QP-save-button {
+  background-color: rgb(215, 46, 47);
+  border: transparent;
+  color: white;
+  border-radius: 20px;
+  padding: 7px;
+}
+
+.QP-save-button:hover {
+  background-color: rgb(162, 34, 36);
+  cursor: pointer;
+}
+
+.QP-saved-button {
+  background-color: black;
+  border: transparent;
+  color: white;
+  border-radius: 20px;
+  padding: 7px;
 }

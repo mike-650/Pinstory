@@ -60,7 +60,7 @@ function BrowsePage() {
                       :
                       <>
                         <div className="BR-profile-drop-down" onClick={(e) => openProf(e, pin.id)}>Profile <i className="fa-solid fa-chevron-down fa-sm"></i></div>
-                        {profileMenu && pin.id === currId && <QuickProf />}
+                        {profileMenu && pin.id === currId && <QuickProf pinId={pin.id}/>}
                         <div className="BR-save-div" onClick={(e) => handleSave(e, pin.id)}>Save</div>
                       </>
                     }

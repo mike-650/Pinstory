@@ -87,12 +87,12 @@ export const thunkEditBoard = (boardId, data) => async dispatch => {
   }
 }
 
-export const thunkAddPinToBoard = (boardId, pinId) => async dispatch => {
+export const thunkAddPinToBoard = (boardId, pinId, userId) => async dispatch => {
   const response = await fetch(`/api/boards/addPin/${boardId}/${pinId}`, {
     method:'PUT'
   })
-
   if (response.ok) {
+    dispatch(thunkUserBoards(userId))
     return;
   }
 }
