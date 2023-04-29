@@ -41,8 +41,6 @@ function BrowsePage() {
     setProfileMenu(true);
   }
 
-
-
   return (
     <div className="BR-TESTING">
       <div className="BR-pins-container">
