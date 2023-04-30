@@ -42,7 +42,6 @@ function ProfileMenu() {
             <div style={{fontSize:'11px', color:'rgb(97,97,97)'}}>{user?.username}</div>
             <i className="fa-solid fa-check fa-sm"></i>
             </div>
-            {/* <div style={{fontSize:'10px', color:'rgb(97,97,97)'}}>{user?.email}</div> */}
             <div style={{fontSize:'10px', color:'rgb(97,97,97)'}}>{user?.email.length > 28 ? user.email.substr(0, 28 - 1) + "…" : user.email }</div>
           </div>
         </NavLink>

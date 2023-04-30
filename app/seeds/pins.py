@@ -225,11 +225,41 @@ def seed_pins():
         description="i feel like they'd taste like apple jacks",
         user_id=3
     )
+    pin38 = Pin(
+        image_url='https://i.pinimg.com/originals/2c/a3/0c/2ca30c8adf6bfb784dd631ee81030499.gif',
+        title='Toyota Supra~',
+        description='retro anime aesthetic looping car gif.',
+        user_id=3
+        )
+    pin39 = Pin(
+        image_url='https://cdn.discordapp.com/attachments/1092597009170571266/1102304436077989978/spmobrksfytoepz5wr9e.gif',
+        title='Anime deep fry',
+        description='Yummmm',
+        user_id=2
+    )
+    pin40 = Pin(
+        image_url='https://cdn.discordapp.com/attachments/1092597009170571266/1102304581150588928/ApprehensivePhysicalKingsnake-size_restricted.gif',
+        title='WOW',
+        description='Why does anime make food look 1000% better?',
+        user_id=1
+    )
+    pin41 = Pin(
+        image_url='https://cdn.discordapp.com/attachments/1092597009170571266/1102304716655960156/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f476e38395379495f6e486d7337673d3d2d3934383231373230382e313633316139393862366535663561643932313032373830343638332e676966.gif',
+        title='Japanese Curry!',
+        description='I actually never had japanese curry before D:',
+        user_id=3
+    )
+    pin42 = Pin(
+        image_url='https://cdn.discordapp.com/attachments/1092597009170571266/1102306459552854106/GrayMeaslyIbex-size_restricted.gif',
+        title='Chihiro',
+        description='S/O Yasine Jobs for this one',
+        user_id=3
+    )
 
     allPins = [pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9,
     pin10, pin11, pin12, pin13, pin14, pin15, pin16, pin17, pin18, pin19, pin20, pin21,
     pin22, pin23, pin24, pin25, pin26, pin27, pin28, pin29, pin30, pin31, pin32, pin33,
-    pin34, pin35, pin36, pin37]
+    pin34, pin35, pin36, pin37, pin38, pin39, pin40, pin41, pin42]
 
     for pin in allPins:
         db.session.add(pin)

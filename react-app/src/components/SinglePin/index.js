@@ -78,7 +78,7 @@ function SinglePin() {
             <p>{pinDetails.user?.firstName} {pinDetails.user?.lastName}</p>
           </div>
         <div className='SP-comments'>
-        <div>6 Comments <i className="fa-solid fa-chevron-down fa-sm"></i></div>
+        {/* <div>6 Comments <i className="fa-solid fa-chevron-down fa-sm"></i></div> */}
         </div>
         </div>
 
