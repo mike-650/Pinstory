@@ -60,12 +60,12 @@ npm install
 'in a seperate terminal'
 
 cd app
-pipenv shell
-flask db init
-flask db migrate
-flask db upgrade
-flask seed all (flask seed undo <- `to undo all seeds`)
-flask run
+pipenv shell;
+flask db init;
+flask db migrate;
+flask db upgrade;
+flask seed all; (flask seed undo <- `to undo all seeds`)
+flask run;
 
 5.  Start the React app:
 
