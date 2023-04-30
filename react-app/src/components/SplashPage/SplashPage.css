@@ -1,8 +1,8 @@
-
 .NV-navbar-container {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
+  margin-top: 5px;
   padding-left: 10px;
 }
 
@@ -13,7 +13,6 @@
   text-decoration: none;
   color: rgb(0, 4, 81);
   font-weight: bold;
-  margin-top: 4px;
   margin-left: 12px;
   font-size: 18px;
 }
@@ -104,14 +103,15 @@
 .SP-images {
   margin-top: 30%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 
-.SP-images > img {
+.SP-images > div > img {
   height: 375px;
   width: 200px;
   border-radius: 20px;
+  margin-right: 5px;
 }
 
 #img1 {
@@ -147,4 +147,24 @@
 #img7 {
   position: relative;
   bottom: 160px;
+}
+
+
+@media only screen and (max-width: 1435px) {
+  .SP-images > div > img {
+    height: 375px;
+    width: 195px;
+    border-radius: 20px;
+    margin-right: 5px;
+  }
+}
+
+
+@media only screen and (max-width: 1400px) {
+  .SP-images > div > img {
+    height: 375px;
+    width: 150px;
+    border-radius: 20px;
+    margin-right: 5px;
+  }
 }

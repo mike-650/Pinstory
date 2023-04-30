@@ -74,7 +74,7 @@ function SinglePin() {
             {pinDetails.description}
           </div>
           <div className='SP-profile-pin-section'>
-            <img id='SP-profile-pin-image'src={pinDetails.user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='profile'></img>
+            <img id='SP-profile-pin-image'src={pinDetails.user?.profilePicture || 'https://ih1.redbubble.net/image.1790122233.3876/flat,750x1000,075,f.jpg'} alt='profile'></img>
             <p>{pinDetails.user?.firstName} {pinDetails.user?.lastName}</p>
           </div>
         <div className='SP-comments'>

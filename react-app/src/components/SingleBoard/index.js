@@ -48,7 +48,7 @@ function SingleBoard() {
         <h1>{board?.title}</h1>
       </div>
       <div className='SB-profile-picture-container'>
-        <img className="PP-profile-picture" src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile'></img>
+        <img className="PP-profile-picture" src={user?.profilePicture || 'https://ih1.redbubble.net/image.1790122233.3876/flat,750x1000,075,f.jpg'} alt='Profile'></img>
       </div>
       <div className='SB-profile-user-name'>
         @{user?.username}

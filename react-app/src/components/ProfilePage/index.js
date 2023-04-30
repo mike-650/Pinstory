@@ -65,7 +65,7 @@ function ProfilePage() {
   return (
     <div>
       <div className="PP-Top-Section">
-        <img className='PP-profile-picture' src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile' />
+        <img className='PP-profile-picture' src={user?.profilePicture || 'https://ih1.redbubble.net/image.1790122233.3876/flat,750x1000,075,f.jpg'} alt='Profile' />
         <h1>{user?.firstName} {user?.lastName}</h1>
         <p>@{user?.username}</p>
         {/* Conditionally render Edit Profile button if logged user is on their own prof page */}

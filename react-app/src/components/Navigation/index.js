@@ -53,7 +53,7 @@ function Navigation() {
       <div className='NV-profile-section'>
         <i className="fa-brands fa-github fa-xl mike-socials" onClick={(e) => GithubLink(e)}></i>
         <i className="fa-brands fa-linkedin fa-xl mike-socials" onClick={(e) => LinkedInLink(e)}></i>
-        <img onClick={openProfileMenu} src={user?.profilePicture || 'https://e7.pngegg.com/pngimages/297/378/png-clipart-cartoon-character-illustration-maplestory-2-maplestory-adventures-video-game-boss-slime-game-leaf.png'} alt='Profile' className='PM-profile-picture'></img>
+        <img onClick={openProfileMenu} src={user?.profilePicture || 'https://ih1.redbubble.net/image.1790122233.3876/flat,750x1000,075,f.jpg'} alt='Profile' className='PM-profile-picture'></img>
         {profileMenu ? <ProfileMenu /> : null}
       </div>
     </div>

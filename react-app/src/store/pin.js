@@ -34,7 +34,7 @@ export const actionUpdatePin = (pin) => {
 }
 
 export const actionDeletePin = (pinId) => {
-  return { type: DELETE_PIN, pinId}
+  return { type: DELETE_PIN, pinId }
 }
 
 // TODO: NORMALIZE DATA
@@ -52,8 +52,9 @@ export const thunkAllPins = () => async dispatch => {
 
   if (response.ok) {
     const data = await response.json();
-    const normalized = normalizePins(data.pins);
-    dispatch(actionAllPins(normalized))
+    // const normalized = normalizePins(data.pins);
+    const shuffledPins = data.pins.sort(() => Math.random() - 0.5);
+    dispatch(actionAllPins(shuffledPins))
     return;
   }
 }
@@ -70,7 +71,7 @@ export const thunkSinglePin = (pinId) => async dispatch => {
 
 export const thunkSavePin = (pinId) => async dispatch => {
   const response = await fetch(`/api/pins/savePin/${pinId}`, {
-    method:'POST'
+    method: 'POST'
   })
 
   if (response.ok) {
@@ -82,7 +83,7 @@ export const thunkSavePin = (pinId) => async dispatch => {
 
 export const thunkUnsavePin = (pinId) => async dispatch => {
   const response = await fetch(`/api/pins/unsavePin/${pinId}`, {
-    method:'DELETE'
+    method: 'DELETE'
   })
 
   if (response.ok) {
@@ -105,8 +106,8 @@ export const thunkSavedPins = () => async dispatch => {
 
 export const thunkUpdatePin = (pinId, title, description) => async dispatch => {
   const response = await fetch(`/api/pins/updatePin/${pinId}`, {
-    method:'PUT',
-    headers: {'Content-Type': 'application/json'},
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ title: title, description: description })
   })
 
@@ -119,7 +120,7 @@ export const thunkUpdatePin = (pinId, title, description) => async dispatch => {
 
 export const thunkDeletePin = (pinId) => async dispatch => {
   const response = await fetch(`/api/pins/deletePin/${pinId}`, {
-    method:'DELETE'
+    method: 'DELETE'
   })
 
   if (response.ok) {
@@ -141,23 +142,23 @@ const pinsReducer = (state = initialState, action) => {
     case ALL_PINS:
       return { ...state, allPins: { ...action.pins } }
     case SINGLE_PIN:
-      return { ...state, singlePin: { ...action.pin }}
+      return { ...state, singlePin: { ...action.pin } }
     case UPDATE_PIN:
-      return { ...state, singlePin: { ...action.pin }}
+      return { ...state, singlePin: { ...action.pin } }
     case DELETE_PIN:
-      let newState = { ...state, allPins: { ...state.allPins }, singlePin: { ...state.singlePin}}
+      let newState = { ...state, allPins: { ...state.allPins }, singlePin: { ...state.singlePin } }
       delete newState.allPins[action.pinId]
       return newState
     case SAVE_PIN:
-      let newSavedPins = { ...state, savedPins: { ...state.savedPins }};
+      let newSavedPins = { ...state, savedPins: { ...state.savedPins } };
       newSavedPins.savedPins[action.pin.id] = action.pin;
       return newSavedPins;
     case UNSAVE_PIN:
-      let unsavePin = { ...state, savedPins: { ...state.savedPins }};
+      let unsavePin = { ...state, savedPins: { ...state.savedPins } };
       delete unsavePin.savedPins[action.pin.id]
       return unsavePin
     case SAVED_PINS:
-      return { ...state, savedPins: { ...action.pins }}
+      return { ...state, savedPins: { ...action.pins } }
     default: return { ...state }
   }
 }
