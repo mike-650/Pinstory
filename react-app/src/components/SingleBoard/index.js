@@ -57,7 +57,7 @@ function SingleBoard() {
         <p>{board.description}</p>
       </div>
       <div className='SP-pins-filter-container'>
-        {board.pins?.length > 1 ? <h4>{board.pins?.length} pins</h4> : <h4>{board.pins?.length} pin</h4>}
+        {board.pins?.length !== 1 ? <h4>{board.pins?.length} pins</h4> : <h4>{board.pins?.length} pin</h4>}
         <i className="fa-solid fa-ellipsis fa-xl" onClick={() => editBoard()}></i>
       </div>
       {showMenu && <BoardOptionsModal />}

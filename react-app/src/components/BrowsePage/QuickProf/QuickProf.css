@@ -26,6 +26,7 @@
   width: 45px;
   margin-left: 3px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .QP-board-container {
