@@ -12,7 +12,7 @@ function SplashPage() {
 	const [currentText, setCurrentText] = useState(0);
 	const [randomColor, setRandomColor] = useState({ color: 'rgb(255, 0, 0)' });
 
-	const mainText = ['anime binge idea', 'weeknight dinner idea', 'new look outfit', 'k-pop group'];
+	const mainText = ['anime binge idea', 'weekend dinner idea', 'new look outfit', 'k-pop group'];
 	const imageArrays = [
 		animeImgs,
 		foodImgs,
@@ -58,61 +58,21 @@ function SplashPage() {
 					</h1>
 				))}
 			</div>
-				<div className="SP-images">
-					{imageArrays.map((urls, i) => (
-						<>
+			<div className="SP-images">
+				{imageArrays.map((urls, i) => (
+					<div key={i}>
+						{urls.map((url, j) => (
 							<img
-								key={i}
-								src={urls[0]}
+								key={`${i}-${j}`}
+								src={url}
 								alt={`test-${i}`}
-								id='img1'
+								id={`img${j + 1}`}
 								className={i === currentText ? "fade-out-images" : "hidden"}
 							/>
-							<img
-								key={i}
-								src={urls[1]}
-								alt={`test-${i}`}
-								id='img2'
-								className={i === currentText ? "fade-out-images" : "hidden"}
-							/>
-							<img
-								key={i}
-								src={urls[2]}
-								alt={`test-${i}`}
-								id='img3'
-								className={i === currentText ? "fade-out-images" : "hidden"}
-							/>
-							<img
-								key={i}
-								src={urls[3]}
-								alt={`test-${i}`}
-								id='img4'
-								className={i === currentText ? "fade-out-images" : "hidden"}
-							/>
-							<img
-								key={i}
-								src={urls[4]}
-								alt={`test-${i}`}
-								id='img5'
-								className={i === currentText ? "fade-out-images" : "hidden"}
-							/>
-							<img
-								key={i}
-								src={urls[5]}
-								alt={`test-${i}`}
-								id='img6'
-								className={i === currentText ? "fade-out-images" : "hidden"}
-							/>
-							<img
-								key={i}
-								src={urls[6]}
-								alt={`test-${i}`}
-								id='img7'
-								className={i === currentText ? "fade-out-images" : "hidden"}
-							/>
-						</>
-					))}
-				</div>
+						))}
+					</div>
+				))}
+			</div>
 		</>
 	);
 }

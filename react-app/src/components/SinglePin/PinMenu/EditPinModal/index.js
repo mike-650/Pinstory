@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from "../../../../context/Modal"
 import './EditPinModal.css'
-import { thunkUpdatePin } from '../../../../store/pin';
+import { thunkSinglePin, thunkUpdatePin } from '../../../../store/pin';
+import SinglePin from '../..';
 
 function EditPinModal() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function EditPinModal() {
 
     dispatch(thunkUpdatePin(singlePin.id, title, description))
     closeModal();
-    return history.push(`/pin/${singlePin.id}`)
+    return;
   }
 
   return (
@@ -34,17 +35,21 @@ function EditPinModal() {
 
       <form className='EP-form' onSubmit={(e) => handleUpdate(e)}>
         <div className='EP-title-sec'>
-          <label>
-            Title
-            {errors.title && <p>{errors.title}</p>}
-          </label>
-          <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} required></input>
+          <div className='EP-title-div'>
+            <label>
+              Title
+              {errors.title && <p style={{ fontSize: '12px', color: 'red' }}>{errors.title}</p>}
+            </label>
+          </div>
+          <input className='EP-title-input' type='text' value={title} onChange={(e) => setTitle(e.target.value)} required></input>
         </div>
         <div className='EP-descrip-sec'>
-          <label>
-            Description
-            {errors.description && <p>{errors.description}</p>}
-          </label>
+          <div className='EP-desc-div'>
+            <label>
+              Description
+              {errors.description && <p style={{ fontSize: '12px', color: 'red' }}>{errors.description}</p>}
+            </label>
+          </div>
           <textarea className='EP-textarea' value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
         </div>
         <div className='EP-save-cancel-buttons'>

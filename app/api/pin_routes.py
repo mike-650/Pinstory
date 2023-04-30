@@ -91,7 +91,11 @@ def update_pin(pin_id):
         pin.description = data.get('description')
         db.session.commit()
         updatedPin = Pin.query.filter(Pin.id == pin_id).one()
-        return {'updatedPin': updatedPin.to_dict()}
+        pin_dict = updatedPin.to_dict()
+        user_dict = pin.user.to_dict()
+        pin_dict['user'] = user_dict
+
+        return {'updatedPin': pin_dict}
     else:
         return {'error': 'Pin not found', 'status': 404}
 
