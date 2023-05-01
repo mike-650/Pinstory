@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { grabUser } from '../../store/session'
 import { useState } from 'react'
-import { thunkSavedPins } from '../../store/pin'
+import { thunkAllPins, thunkSavedPins } from '../../store/pin'
 import { thunkUserBoards } from '../../store/board'
 import BoardMenu from './BoardMenu'
 import Created from './Created'
@@ -25,6 +25,7 @@ function ProfilePage() {
   const userId = useSelector(state => state.session.singleUser?.id);
 
   useEffect(() => {
+    dispatch(thunkAllPins());
     dispatch(thunkSavedPins());
     async function fetchData() {
       const res = await dispatch(grabUser(userName))

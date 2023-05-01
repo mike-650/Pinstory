@@ -30,6 +30,7 @@
   /* width: 20%; */
   /* height: 100%; */
   margin-left: 20px;
+  width: 40%;
 }
 
 .EP-title-input {
@@ -54,6 +55,8 @@
 
 .EP-desc-div {
   margin-left: 20px;
+  width: 40%;
+  
 }
 
 .EP-textarea {

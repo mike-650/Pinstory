@@ -46,7 +46,7 @@ function NewPin() {
       ".eps", ".svg", ".pdf", ".ico",
       ".raw", ".webp"]
 
-    if (title.length >= 30) err.title = 'Pin Title must be less than 30 characters';
+    if (title.length >= 20) err.title = 'Pin Title must be less than 20 characters';
     if (description.length >= 120) err.description = 'Description must be less than 120 characters';
 
     if (!imgFile) {
