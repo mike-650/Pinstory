@@ -14,7 +14,7 @@ const foodImgs = [
   "https://i.pinimg.com/564x/01/a8/b2/01a8b20022d3ac8d1c0ad960e7b67466.jpg",
   "https://i.pinimg.com/564x/10/13/58/101358311c9956040c2f00d2013582ee.jpg",
   "https://i.pinimg.com/564x/b9/91/94/b991947f736aee05a9a4e9c891af49ef.jpg",
-  "https://i.pinimg.com/564x/70/6b/b6/706bb6e7818fde809c9cde58be61adc1.jpg",
+  "https://i.pinimg.com/564x/52/c7/33/52c733b033e709cc4166c8b1090da1af.jpg",
   "https://i.pinimg.com/564x/5d/4a/c3/5d4ac3448ebeaecbe875b605dc1385eb.jpg",
 ];
 
