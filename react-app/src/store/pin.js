@@ -100,6 +100,7 @@ export const thunkSavedPins = () => async dispatch => {
     const data = await response.json();
     const normalized = normalizePins(data.saved_pins)
     dispatch(actionSavedPins(normalized));
+    // ! WHAT IS THIS DOING
     return data.saved_pins.map(pin => pin.id)
   }
 }
