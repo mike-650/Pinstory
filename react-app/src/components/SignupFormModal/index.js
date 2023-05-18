@@ -22,11 +22,19 @@ function SignupFormModal() {
 		e.preventDefault();
 		let err = {};
 		username.toLowerCase();
+		const emailValidator = require("email-validator");
+
+		if (!emailValidator.validate(email)) err.email = 'Please provide a valid email';
+		if (email.length >= 45) err.email = "Email must be less than 45 characters";
 
 		if (firstName.length > 20 || firstName.length < 2) err.firstName = 'First name must be between 2 and 20 characters';
+
 		if (lastName.length > 20 || lastName.length < 2) err.lastName = 'Last name must be between 2 and 20 characters';
+
 		if (username.length < 5 || username.length > 20) err.username = 'Username must be between 5 and 20 characters.';
+
 		if (password.length < 6) err.password = 'Password must be at least 6 characters.';
+		
 		if (Object.values(err).length) return setErrors(err);
 
 		if (password === confirmPassword) {
@@ -57,7 +65,7 @@ function SignupFormModal() {
 				<label />
 				Email
 				<input
-					type="email"
+					type="text"
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					required
