@@ -46,7 +46,9 @@ function NewPin() {
       ".eps", ".svg", ".pdf", ".ico",
       ".raw", ".webp"]
 
+    if (title.trim().length === 0) err.title = 'Please provide a title';
     if (title.length >= 20) err.title = 'Pin Title must be less than 20 characters';
+    if (description.trim().length === 0) err.description = 'Please provide a description';
     if (description.length >= 120) err.description = 'Description must be less than 120 characters';
 
     if (!imgFile) {
@@ -111,7 +113,6 @@ function NewPin() {
               className='NP-title-field'
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              required
             >
             </input>
             <div className='NP-profile-preview'>
@@ -130,7 +131,6 @@ function NewPin() {
               className='NP-description-field'
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              required
             >
             </textarea>
           </div>

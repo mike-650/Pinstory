@@ -15,7 +15,7 @@ function BoardPinModal() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     let err = {};
-    if (title.length <= 0) err.title = "Don't forget to name your board!";
+    if (title.trim().length <= 0) err.title = "Don't forget to name your board!";
     if (title.length > 21) err.title = "Title must be less than 20 characters";
 
     if (err.title) return setErrors(err)
