@@ -18,7 +18,7 @@ function EditBoardModal() {
     e.preventDefault();
     let err = {};
 
-    if (title.length <= 0) err.title = "Don't forget to name your board!";
+    if (title.trim().length <= 0) err.title = "Don't forget to name your board!";
     if (title.length > 21) err.title = "Title must be less than 20 characters";
     if (description.length >= 120) err.description = 'Description must be less than 120 characters';
 
