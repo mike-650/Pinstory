@@ -22,15 +22,15 @@ function Navigation() {
     else return setProfileMenu(false)
   }
 
-    const LinkedInLink = (e) => {
-      e.preventDefault();
-      window.open('https://www.linkedin.com/in/michael-s-688653118/', '_blank');
-    };
+  const LinkedInLink = (e) => {
+    e.preventDefault();
+    window.open('https://www.linkedin.com/in/michael-s-688653118/', '_blank');
+  };
 
-    const GithubLink = (e) => {
-      e.preventDefault();
-      window.open('https://github.com/mike-650', '_blank');
-    };
+  const GithubLink = (e) => {
+    e.preventDefault();
+    window.open('https://github.com/mike-650', '_blank');
+  };
 
   return (
     <div className='NV-container'>
@@ -41,12 +41,16 @@ function Navigation() {
         </NavLink>
         <div className='NV-create-pin-container'>
           <div className='NV-createpin-icon'>
-            <p className='NV-create-link' style={{marginRight:'5px'}} onClick={openCreateMenu}>Create</p> <i onClick={openCreateMenu} className="fa-solid fa-chevron-down NV-create-link"></i>
+            <p className='NV-create-link' style={{ marginRight: '5px' }} onClick={openCreateMenu}>Create</p> <i onClick={openCreateMenu} className="fa-solid fa-chevron-down NV-create-link"></i>
           </div>
           {createMenu && <CreatePinMenu />}
         </div>
       </div>
-      <form className='NV-search-bar-container' onSubmit={() => alert('Feature Coming Soon!')}>
+      <form className='NV-search-bar-container'
+        onSubmit={(e) => {
+          e.preventDefault();
+          alert('Feature Coming Soon!');
+        }}>
         <i className="fa-solid fa-magnifying-glass fa-sm" id='NV-search-icon'></i>
         <input type='search' placeholder='Feature Coming Soon!' id='NV-search-bar' />
       </form>
