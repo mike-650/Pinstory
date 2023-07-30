@@ -118,62 +118,80 @@
 #img1 {
   position: relative;
   bottom: 160px;
+  user-select: none;
 }
 
 #img2 {
   position: relative;
   bottom: 100px;
+  user-select: none;
 }
 
 #img3 {
   position: relative;
   bottom: 20px;
+  user-select: none;
 }
 
 #img4 {
   position: relative;
   top: 50px;
+  user-select: none;
 }
 
 #img5 {
   position: relative;
   bottom: 20px;
+  user-select: none;
 }
 
 #img6 {
   position: relative;
   bottom: 100px;
+  user-select: none;
 }
 
 #img7 {
   position: relative;
   bottom: 160px;
+  user-select: none;
 }
 
-@media only screen and (max-width: 1435px) {
-  .SP-images > div > img {
-    height: 375px;
-    width: 195px;
-    border-radius: 20px;
-    margin-right: 5px;
+
+@media only screen and (max-width: 1439px) {
+  #img1 {
+    display: none;
+  }
+  #img7 {
+    display: none;
   }
 }
 
-/* @media only screen and (max-width: 1435px) {
-  .SP-images > div > img {
-    height: 375px;
-    width: 195px;
-    border-radius: 20px;
-    margin-right: 5px;
-  }
-} */
 
-/*
-@media only screen and (max-width: 1400px) {
-  .SP-images > div > img {
-    height: 375px;
-    width: 150px;
-    border-radius: 20px;
-    margin-right: 5px;
+@media only screen and (max-width: 1200px) {
+  #img2 {
+    display: none;
   }
-} */
+  #img6 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  #img3 {
+    display: none;
+  }
+  #img5 {
+    display: none;
+  }
+
+  .SP-images {
+    margin-top: 30%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .SP-images {
+    margin-top: 90%;
+  }
+}
