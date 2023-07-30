@@ -102,6 +102,7 @@
 
 .SP-images {
   margin-top: 30%;
+  margin-left: .2%;
   display: flex;
   justify-content: center;
 }
@@ -149,7 +150,6 @@
   bottom: 160px;
 }
 
-
 @media only screen and (max-width: 1435px) {
   .SP-images > div > img {
     height: 375px;
@@ -159,7 +159,16 @@
   }
 }
 
+/* @media only screen and (max-width: 1435px) {
+  .SP-images > div > img {
+    height: 375px;
+    width: 195px;
+    border-radius: 20px;
+    margin-right: 5px;
+  }
+} */
 
+/*
 @media only screen and (max-width: 1400px) {
   .SP-images > div > img {
     height: 375px;
@@ -167,4 +176,4 @@
     border-radius: 20px;
     margin-right: 5px;
   }
-}
+} */
