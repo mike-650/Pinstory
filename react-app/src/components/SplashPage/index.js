@@ -20,7 +20,6 @@ function SplashPage() {
 		kpopImgs
 	];
 
-
 	useEffect(() => {
 		const intervalId = setInterval(() => {
 			// * Callback sets the currentext + 1 every iteration and then % 4 to reset the
