@@ -17,7 +17,7 @@
   font-size: 18px;
 }
 
-.NV-home-link>p {
+.NV-home-link > p {
   font-size: 20px;
   color: rgb(133, 144, 194);
 }
@@ -58,7 +58,7 @@
   transform: translate(-50%, -50%);
 }
 
-.SP-main-text>h1 {
+.SP-main-text > h1 {
   margin-bottom: 2px;
   margin-top: 10px;
 }
@@ -192,6 +192,20 @@
 
 @media only screen and (max-width: 1000px) {
   .SP-images {
-    margin-top: 90%;
+    margin-top: 35%;
+  }
+
+  .SP-main-text {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .SP-images {
+    margin-top: 70%;
+  }
+
+  .SP-static-text {
+    font-size: 20px;
   }
 }
