@@ -188,6 +188,10 @@
   .SP-images {
     margin-top: 30%;
   }
+
+  .mike-socials {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -195,17 +199,23 @@
     margin-top: 35%;
   }
 
-  .SP-main-text {
+  .SP-main-text, .SP-static-text {
     font-size: 22px;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .SP-images {
-    margin-top: 70%;
+    margin-top: 60%;
   }
 
-  .SP-static-text {
-    font-size: 20px;
+  .SP-static-text, .SP-main-text {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .SP-static-text, .SP-main-text {
+    font-size: 18px;
   }
 }
