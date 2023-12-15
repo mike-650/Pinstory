@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import CreatePinMenu from './CreatePinMenu';
 import logo from '../../images/pinstory-icon.png'
-import './Navigation.css'
 import ProfileMenu from './ProfileMenu';
-import { useSelector } from 'react-redux';
+
+import './Navigation.css'
 
 function Navigation() {
   const [createMenu, setCreateMenu] = useState(false)
