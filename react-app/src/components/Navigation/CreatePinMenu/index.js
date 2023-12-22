@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
-import './CreatePinMenu.css'
 import { useState, useRef, useEffect } from 'react'
+import './CreatePinMenu.css'
 
 function CreatePinMenu() {
   const dropdownRef = useRef(null);
