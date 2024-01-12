@@ -12,6 +12,16 @@ function SplashPage() {
 	const [currentText, setCurrentText] = useState(0);
 	const [randomColor, setRandomColor] = useState({ color: 'rgb(255, 0, 0)' });
 
+	useEffect(() => {
+    // Add the class to disable scrolling when the component mounts
+    document.body.classList.add('splash-page');
+
+    // Optionally, you can remove the class when the component unmounts
+    return () => {
+      document.body.classList.remove('splash-page');
+    };
+  }, []);
+
 	const mainText = ['anime binge idea', 'weekend dinner idea', 'new look outfit', 'k-pop group'];
 	const imageArrays = [
 		animeImgs,
