@@ -44,13 +44,16 @@
 
 @media only screen and (max-width: 850px) {
   .BR-pins-container {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 10px 40px;
-    grid-gap: 10px; */
     width: 90%;
     column-count: 2;
-    /* margin-left: 3.2em; */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .BR-pins-container {
+    width: 90%;
+    column-count: 1;
+    margin-left: 25%;
   }
 }
 
@@ -91,10 +94,6 @@
   color: white;
   font-size: 20px;
   text-align: center;
-}
-
-.BR-profile-drop-down:hover {
-
 }
 
 .BR-save-div {

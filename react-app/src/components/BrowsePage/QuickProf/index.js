@@ -20,7 +20,7 @@ function QuickProf({pinId}) {
       </div>
       <div className='QP-board-container'>
         <h5>All Boards</h5>
-        <ul>
+        <ul >
           {Object.values(userBoards).map(board =>
             <li key={board.id}>
               <div className='QP-board'>
