@@ -232,13 +232,13 @@ def seed_pins():
         user_id=3
         )
     pin39 = Pin(
-        image_url='https://cdn.discordapp.com/attachments/1092597009170571266/1102304436077989978/spmobrksfytoepz5wr9e.gif',
-        title='Anime deep fry',
+        image_url='https://cdn.discordapp.com/attachments/1175587011323773031/1212482285346099230/fdcd496f2644da005793c09cc10cbd68.png?ex=65f1ff1f&is=65df8a1f&hm=8a8522f5db51049dca0b7552344f4f0b51f42834c42abf43e97865dfe5f744cf&',
+        title='Anime Food GIF',
         description='Yummmm',
         user_id=2
     )
     pin40 = Pin(
-        image_url='https://cdn.discordapp.com/attachments/1092597009170571266/1102304581150588928/ApprehensivePhysicalKingsnake-size_restricted.gif',
+        image_url='https://cdn.discordapp.com/attachments/1175587011323773031/1212481046642294814/ee72f4b97e6c40268c837392541dd85e.png?ex=65f1fdf8&is=65df88f8&hm=5ed4145492ae49cb804e4348df1697dd811018e691c69c5453a82f53e918e9a0&',
         title='WOW',
         description='Why does anime make food look 1000% better?',
         user_id=1
@@ -250,12 +250,12 @@ def seed_pins():
         user_id=3
     )
     pin42 = Pin(
-        image_url='https://cdn.discordapp.com/attachments/1092597009170571266/1102306459552854106/GrayMeaslyIbex-size_restricted.gif',
-        title='Chihiro',
-        description='S/O Yasine Jobs for this one',
+        image_url='https://i.pinimg.com/564x/8c/61/2a/8c612a74e0628be3fdc7033b011fb706.jpg',
+        title='XG!',
+        description='Did you know XG stands for Xtraordinary Girls?',
         user_id=3
     )
-    
+
     allPins = [pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8, pin9,
     pin10, pin11, pin12, pin13, pin14, pin15, pin16, pin17, pin18, pin19, pin20, pin21,
     pin22, pin23, pin24, pin25, pin26, pin27, pin28, pin29, pin30, pin31, pin32, pin33,
